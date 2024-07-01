@@ -6,9 +6,9 @@ import { MdOutlineShoppingBag } from "react-icons/md";
 
 const Footer = () => {
     return (
-        <div className="bg-mainShade p-4 ml-4 mt-32 rounded-tr-3xl rounded-tl-3xl flex items-center justify-between w-11/12 h-14 select-none">
-            <div className={"grid grid-cols-5 gap-7"}>
-                <div className={"flex flex-col items-center text-white"}>
+        <div className="bg-mainShade p-4 ml-4 mt-52 rounded-tr-3xl rounded-tl-3xl w-11/12 h-16 select-none">
+            <div className={"flex justify-evenly items-center"}>
+                <div className={"flex-col inline-block items-center text-white"}>
                     <MdInsertChartOutlined size={"24"}/>
                     <h3 className={"text-xs m-0.5"}>Top</h3>
                 </div>

@@ -1,6 +1,6 @@
 import MainPageStatCard from "../cards/MainPage-Stat-Card.tsx";
 import {IStats} from "../types/types.tsx";
-import MainPageTapCoin from "./MainPage-TapCoin.tsx";
+import MainPageTapCoin from "../buttons/MainPage-TapCoin.tsx";
 
 const MainPageBody = () => {
 
