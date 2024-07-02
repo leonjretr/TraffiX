@@ -1,6 +1,6 @@
 import MainPageStatCard from "../cards/MainPage-Stat-Card.tsx";
 import {IStats} from "../types/types.tsx";
-import MainPageTapCoin from "../buttons/MainPage-TapCoin.tsx";
+import CoinButton from "../buttons/CoinButton.tsx";
 
 const MainPageBody = () => {
 
@@ -9,7 +9,7 @@ const MainPageBody = () => {
     return (
         <div className={"MainPage"}>
             <MainPageStatCard stats={stats}/>
-            <MainPageTapCoin/>
+            <CoinButton/>
         </div>
     );
 };
