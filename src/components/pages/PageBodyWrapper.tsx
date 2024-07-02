@@ -1,12 +1,12 @@
-import { FC } from "react";
+import React, { FC } from "react";
 import Footer from "../footer/Footer.tsx";
 import Header from "../header/Header.tsx";
 
 interface PageWrapperProperties {
-  children: FC;
+  children: React.ReactNode;
 }
 
-const PageWrapper: FC<PageWrapperProperties> = ({ children }) => {
+const PageBodyWrapper: FC<PageWrapperProperties> = ({ children }) => {
   return (
     <div>
       <Header />
@@ -16,4 +16,4 @@ const PageWrapper: FC<PageWrapperProperties> = ({ children }) => {
   );
 };
 
-export default PageWrapper;
+export default PageBodyWrapper;
