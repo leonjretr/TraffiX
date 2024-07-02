@@ -8,19 +8,19 @@ const Header = () => {
 
     return (
         <div
-            className="bg-mainShade p-4 ml-4 rounded-br-3xl rounded-bl-3xl flex items-center justify-between w-11/12 select-none">
+            className="bg-mainShade p-4 mx-4 rounded-br-3xl rounded-bl-3xl flex items-center justify-between w-auto h-24 sm:h-28 md:h-32 select-none">
             <div className="flex items-center">
-                <img className={"w-10 h-10 rounded-md"} id="bradpitt" src={Imgs.avatar}
+                <img className={"w-12 h-12 sm:h-14 sm:w-14 md:w-20 md:h-20 rounded-md ring-2 ring-main"} id="bradpitt" src={Imgs.avatar}
                      alt={"User Avatar"}/>
                 <div className="ml-4 text-white">
-                    <div className="text-xl font-semibold">username</div>
-                    <div className="text-xs">group/league</div>
+                    <div className="text-xl md:text-3xl font-semibold">username</div>
+                    <div className="text-xs md:text-base">group/league</div>
                 </div>
             </div>
             <div className="flex space-x-2">
-                <button className={"text-sandish active:text-wheat focus:ring-wheat"}><IoIosWallet size={"25"}/>
+                <button className={"text-white active:text-wheat focus:ring-wheat text-3xl sm:text-4xl md:text-5xl"}><IoIosWallet/>
                 </button>
-                <button className={"text-sandish active:text-wheat focus:ring-wheat"}><IoMdSettings size={"25"}/>
+                <button className={"text-white active:text-wheat focus:ring-wheat text-3xl sm:text-4xl md:text-5xl"}><IoMdSettings />
                 </button>
             </div>
         </div>
