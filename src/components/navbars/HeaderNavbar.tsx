@@ -1,4 +1,3 @@
-import React from "react";
 import { IoIosWallet, IoMdSettings } from "react-icons/io";
 
 const HeaderNavbar = () => (
