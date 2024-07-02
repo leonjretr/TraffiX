@@ -6,7 +6,7 @@ interface MainPageStatCardProps {
   stats: IStats;
 }
 
-const MainPageStatCard: FC<MainPageStatCardProps> = ({ stats }) => {
+const StatBoard: FC<MainPageStatCardProps> = ({ stats }) => {
   return (
     <div className="flex columns-2 w-full pl-4 pr-4 justify-evenly mt-4">
       <BalanceCard title="Your balance" amount={stats.balance} currency="GBs" />
@@ -20,4 +20,4 @@ const MainPageStatCard: FC<MainPageStatCardProps> = ({ stats }) => {
   );
 };
 
-export default MainPageStatCard;
+export default StatBoard;
