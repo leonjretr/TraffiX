@@ -4,7 +4,7 @@ import Footer from "./components/footer/Footer.tsx";
 
 const App = () => {
     return (
-        <div className="App bg-main">
+        <div className="App bg-main h-screen">
             <div className={"Header"}>
                 <Header/>
             </div>
