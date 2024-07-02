@@ -10,7 +10,7 @@ const Header = () => {
         <div
             className="bg-mainShade p-4 mx-4 rounded-br-3xl rounded-bl-3xl flex items-center justify-between w-auto h-24 sm:h-28 md:h-32 select-none">
             <div className="flex items-center">
-                <img className={"w-12 h-12 sm:h-14 sm:w-14 md:w-20 md:h-20 rounded-md ring-2 ring-sandish"} id="bradpitt" src={Imgs.avatar}
+                <img className={"w-12 h-12 sm:h-14 sm:w-14 md:w-20 md:h-20 rounded-md ring-2 ring-main"} id="bradpitt" src={Imgs.avatar}
                      alt={"User Avatar"}/>
                 <div className="ml-4 text-white">
                     <div className="text-xl md:text-3xl font-semibold">username</div>
