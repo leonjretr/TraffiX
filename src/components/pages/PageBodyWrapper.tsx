@@ -2,6 +2,7 @@ import React, { FC } from "react";
 import Footer from "../footer/Footer.tsx";
 import Header from "../header/Header.tsx";
 
+
 interface PageWrapperProperties {
   children: React.ReactNode;
 }
