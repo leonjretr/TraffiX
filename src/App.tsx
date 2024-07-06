@@ -1,10 +1,13 @@
-import MainPage from "./components/pages/MainPage.tsx";
+import {BrowserRouter as Router} from "react-router-dom";
+import AnimatedRoute from "./components/pages/AnimatedRoute.tsx";
 
 const App = () => {
 
     return (
         <div className="App bg-main h-screen min-h-screen">
-            <MainPage/>
+            <Router>
+                <AnimatedRoute/>
+            </Router>
         </div>
     );
 };
