@@ -33,37 +33,37 @@ const AnimatedRoute = () => {
             }
             if (isSwipedRight) {
                 switch (location.pathname) {
-                    case '/':
-                        navigate("/tasks")
+                    case '../':
+                        navigate("../tasks", {replace: true})
                         break;
-                    case '/tasks':
-                        navigate("/shop")
+                    case '../tasks':
+                        navigate("../shop", {replace: true})
                         break;
-                    case '/shop':
+                    case '../shop':
                         break;
-                    case '/top':
-                        navigate("/friends")
+                    case '../top':
+                        navigate("../friends", {replace: true})
                         break;
-                    case '/friends':
-                        navigate("/tap")
+                    case '../friends':
+                        navigate("../tap", {replace: true})
                         break;
                 }
             }
             if (isSwipedLeft) {
                 switch (location.pathname) {
-                    case '/':
-                        navigate("/friends")
+                    case '../':
+                        navigate("../friends", {replace: true})
                         break;
-                    case '/friends':
-                        navigate("/top")
+                    case '../friends':
+                        navigate("../top", {replace: true})
                         break;
-                    case '/top':
+                    case '../top':
                         break;
-                    case '/shop':
-                        navigate("/tasks")
+                    case '../shop':
+                        navigate("../tasks", {replace: true})
                         break;
-                    case '/tasks':
-                        navigate("/")
+                    case '../tasks':
+                        navigate("../", {replace: true})
                         break;
                 }
             }
