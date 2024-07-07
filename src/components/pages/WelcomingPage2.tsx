@@ -5,7 +5,7 @@ const WelcomingPage2 = () => {
     const app2 = new URL("/imgs/ourApp2.png", import.meta.url).href;
     return (
         <motion.div
-            className={"WelcomingPage2 bg-black flex flex-col flex-grow h-screen"}
+            className={"WelcomingPage2 bg-black h-screen"}
             initial={{opacity: 0}}
             animate={{opacity: 3}}
             exit={{opacity:0}}
