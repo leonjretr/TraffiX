@@ -6,9 +6,9 @@ const TopPage = () => {
         <motion.div
             className={"TopPage bg-main h-screen"}
             initial={{opacity: 0}}
-            animate={{opacity: 5}}
+            animate={{opacity: 3}}
             exit={{opacity: 0}}
-            transition={{duration: 0.5}}>
+            transition={{duration: 0.2}}>
 
             <PageBodyWrapper>
                 <h1 className={"text-white text-5xl font-niceFontSec text-center m-10 select-none"}>Working on

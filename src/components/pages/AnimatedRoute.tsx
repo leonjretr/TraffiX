@@ -4,8 +4,11 @@ import TasksPage from "./TasksPage.tsx";
 import TopPage from "./TopPage.tsx";
 import ShopPage from "./ShopPage.tsx";
 import {AnimatePresence} from "framer-motion";
-import MainPage from "./MainPage.tsx";
 import {useEffect, useState} from "react";
+import WelcomingPage1 from "./WelcomingPage1.tsx";
+import MainPage from "./MainPage.tsx";
+import WelcomingPage2 from "./WelcomingPage2.tsx";
+import WelcomingPage3 from "./WelcomingPage3.tsx";
 
 const AnimatedRoute = () => {
 
@@ -78,6 +81,9 @@ const AnimatedRoute = () => {
                 <Route path="/top" element={<TopPage/>}/>
                 <Route path="/tasks" element={<TasksPage/>}/>
                 <Route path="/shop" element={<ShopPage/>}/>
+                <Route path={"/guide1"} element={<WelcomingPage1/>}/>
+                <Route path={"/guide2"} element={<WelcomingPage2/>}/>
+                <Route path={"/guide3"} element={<WelcomingPage3/>}/>
             </Routes>
         </AnimatePresence>
     );
