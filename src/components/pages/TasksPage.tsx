@@ -7,9 +7,9 @@ const TasksPage = () => {
         <motion.div
             className={"TasksPage bg-main h-screen pb-24"}
             initial={{opacity: 0}}
-            animate={{opacity: 5}}
+            animate={{opacity: 3}}
             exit={{opacity: 0}}
-            transition={{duration: 0.5}}
+            transition={{duration: 0.2}}
         >
             <PageBodyWrapper>
                 <div className={"bg-main overflow-y-auto pb-24"}>
