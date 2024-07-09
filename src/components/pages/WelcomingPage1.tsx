@@ -19,7 +19,7 @@ const WelcomingPage1 = () => {
             </div>
             <div className={"flex justify-center mt-12"}>
                 <img src={app1} alt={"Screen1"}
-                     className={"w-2/5 h-2/5 mob1:w-3/6 mob1:h-3/6 mob2:w-3/4 mob2:h-3/4 mob3:w-4/5 mob3:h-4/5 rounded-md border-2 border-black shadow-2xl shadow-purple-700"}/>
+                     className={"w-2/5 h-2/5 mob1:w-3/5 mob1:h-3/5 mob2:w-3/4 mob2:h-3/4 mob3:w-4/5 mob3:h-4/5 rounded-md border-2 border-black shadow-2xl shadow-purple-700"}/>
             </div>
             <div className={"flex justify-end"}>
                 <Link to={"/guide2"}
