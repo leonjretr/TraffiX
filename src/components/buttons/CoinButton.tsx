@@ -1,5 +1,5 @@
 // import {motion} from "framer-motion";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import {FC, useEffect, useState} from "react";
 
 interface CoinButtonProps {
@@ -15,7 +15,6 @@ const CoinButton: FC<CoinButtonProps> = () => {
     const [positionY, setPositionY] = useState<number>(0);
     const [isVisible, setIsVisible] = useState(false);
     // let profitptap = profitphour / 1200;
-    // console.log(profitptap);
 
     let startTouchX: number = 0;
     let startTouchY: number = 0;
@@ -64,10 +63,10 @@ const CoinButton: FC<CoinButtonProps> = () => {
                         <motion.div
                             initial={{opacity: 0}}
                             animate={{opacity: 5}}
-                            exit={{opacity:0}}
-                            transition={{duration:0.5}}
+                            exit={{opacity: 0}}
+                            transition={{duration: 0.3}}
                             className="profit-per-tap bg-transparent text-white text-4xl font-bold font-poppinsFont select-none"
-                            style={{top: `${positionY}px`, left: `${positionX}px`, position: 'absolute'}}
+                            style={{top: `${positionY * 0.5}px`, left: `${positionX * 0.5}px`, position: 'absolute'}}
                         >
                             +7
                         </motion.div>
