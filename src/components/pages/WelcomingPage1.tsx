@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import {Link, Outlet} from "react-router-dom";
 
 const WelcomingPage1 = () => {
-    const app1 = new URL("/imgs/ourApp2.png", import.meta.url).href;
+    const app1 = new URL("/imgs/ourApp.png", import.meta.url).href;
     return (
         <motion.div
             className={"WelcomingPage1 bg-black min-h-screen"}
@@ -17,9 +17,9 @@ const WelcomingPage1 = () => {
                 <h1 className={"text-gray-400 text-xs mob3:text-base sm:text-xl mt-5"}>Additional things like boosts will be added
                     soon...</h1>
             </div>
-            <div className={"flex justify-center mt-8"}>
+            <div className={"flex justify-center mt-12"}>
                 <img src={app1} alt={"Screen1"}
-                     className={"w-2/5 h-2/5 mob1:w-4/6 mob1:h-4/6 mob2:w-3/4 mob2:h-3/4 mob3:w-4/5 mob3:h-4/5 rounded-md border-2 border-black shadow-2xl shadow-purple-700"}/>
+                     className={"w-2/5 h-2/5 mob1:w-3/6 mob1:h-3/6 mob2:w-3/4 mob2:h-3/4 mob3:w-4/5 mob3:h-4/5 rounded-md border-2 border-black shadow-2xl shadow-purple-700"}/>
             </div>
             <div className={"flex justify-end"}>
                 <Link to={"/guide2"}

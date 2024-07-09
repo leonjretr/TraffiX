@@ -5,7 +5,7 @@ const WelcomingPage3 = () => {
     const app3 = new URL("/imgs/ourApp3.png", import.meta.url).href;
     return (
         <motion.div
-            className={"WelcomingPage2 bg-black h-screen"}
+            className={"WelcomingPage2 bg-black min-h-screen select-none"}
             initial={{opacity: 0}}
             animate={{opacity: 3}}
             exit={{opacity:0}}
@@ -16,7 +16,7 @@ const WelcomingPage3 = () => {
             </div>
             <div className={"flex justify-center mt-12"}>
                 <img src={app3} alt={"Screen3"}
-                     className={"w-2/5 h-2/5 mob1:w-4/6 mob1:h-4/6 mob2:w-3/4 mob2:h-3/4 mob3:w-4/5 mob3:h-4/5 rounded-md border-2 border-black shadow-2xl shadow-purple-700"}/>
+                     className={"w-2/5 h-2/5 mob1:w-3/6 mob1:h-3/6 mob2:w-3/4 mob2:h-3/4 mob3:w-4/5 mob3:h-4/5 rounded-md border-2 border-black shadow-2xl shadow-purple-700"}/>
             </div>
             <div className={"flex justify-end"}>
                 <Link to={"/main"}
