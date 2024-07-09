@@ -1,5 +1,5 @@
 // import {motion} from "framer-motion";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import {FC, useEffect, useState} from "react";
 
 interface CoinButtonProps {
@@ -15,7 +15,6 @@ const CoinButton: FC<CoinButtonProps> = () => {
     const [positionY, setPositionY] = useState<number>(0);
     const [isVisible, setIsVisible] = useState(false);
     // let profitptap = profitphour / 1200;
-    // console.log(profitptap);
 
     let startTouchX: number = 0;
     let startTouchY: number = 0;
@@ -29,10 +28,8 @@ const CoinButton: FC<CoinButtonProps> = () => {
                 startTouchY = event.changedTouches[0].pageY;
                 setPositionX(startTouchX);
                 setPositionY(startTouchY);
-                console.log("position X:" + positionX);
-                console.log("position Y:" + positionY);
+                console.log(positionY);
                 setIsVisible(true);
-                console.log(isVisible);
             })
         }
     }
@@ -40,7 +37,7 @@ const CoinButton: FC<CoinButtonProps> = () => {
         if (isVisible) {
             const timer = setTimeout(() => {
                 setIsVisible(false);
-            }, 1000); // Hide after 2 seconds
+            }, 300); // Hide after 2 seconds
             return () => clearTimeout(timer); // Cleanup the timer
         }
     }, [isVisible]);
@@ -62,12 +59,24 @@ const CoinButton: FC<CoinButtonProps> = () => {
 
                     {isVisible && (
                         <motion.div
-                            initial={{opacity: 0}}
-                            animate={{opacity: 5}}
-                            exit={{opacity:0}}
-                            transition={{duration:0.5}}
+                            initial={{
+                                opacity: 0,
+                                x: `${positionX*0.05}px`,
+                                y: `${positionY*0.05}px`
+                            }}
+                            animate={{
+                                opacity: 3,
+                                x: `${positionX*0.05}px`,
+                                y: `${positionY*0.05-200}px`
+                            }}
+                            exit={{
+                                opacity: 0,
+                                x: `${positionX*0.05}px`,
+                                y: `${positionY*0.05}px`
+                            }}
+                            transition={{duration: 0.1}}
                             className="profit-per-tap bg-transparent text-white text-4xl font-bold font-poppinsFont select-none"
-                            style={{top: `${positionY}px`, left: `${positionX}px`, position: 'absolute'}}
+                            style={{top: `${positionY * 0.5}px`, left: `${positionX*0.5}px`, position: 'absolute'}}
                         >
                             +7
                         </motion.div>
