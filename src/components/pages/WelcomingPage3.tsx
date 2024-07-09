@@ -20,7 +20,7 @@ const WelcomingPage3 = () => {
             </div>
             <div className={"flex justify-end"}>
                 <Link to={"/main"}
-                    className={"w-36 h-12 mob3:w-32 mob3:h-20 mob2:text-2xl mr-5 mt-7 mob1:mt-12 text-center rounded-lg text-white font-semibold place-items-center text-lg font-poppinsFont bg-purple-700 focus:bg-purple-900 focus:ring-4 focus:ring-purple-300 px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"}>
+                    className={"w-36 h-12 text-base mob3:w-32 mob3:h-20 mob2:text-xl mr-5 mt-7 mob1:mt-12 text-center rounded-lg text-white font-semibold place-items-center font-poppinsFont bg-purple-700 focus:bg-purple-900 focus:ring-4 focus:ring-purple-300 px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"}>
                     Let's dive!
                 </Link>
                 <Outlet/>

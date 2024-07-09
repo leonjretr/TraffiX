@@ -8,20 +8,21 @@ const MainPage = () => {
     const stats: IStats = {balance: 1200, profitphour: 100};
 
     return (
-        <motion.div
-            className={"MainPage"}
-            initial={{opacity: 0}}
-            animate={{opacity: 3}}
-            exit={{opacity:0}}
-            transition={{duration:0.2}}
-        >
-            <PageBodyWrapper>
+        <PageBodyWrapper>
+            <motion.div
+                className={"MainPage"}
+                initial={{opacity: 0}}
+                animate={{opacity: 3}}
+                exit={{opacity: 0}}
+                transition={{duration: 0.2}}
+            >
+
                 <div className={"pb-24"}>
                     <StatBoard stats={stats}/>
-                    <CoinButton/>
+                    <CoinButton profitphour={stats.profitphour}/>
                 </div>
-            </PageBodyWrapper>
-        </motion.div>
+            </motion.div>
+        </PageBodyWrapper>
     );
 };
 
