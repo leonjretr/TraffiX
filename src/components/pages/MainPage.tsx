@@ -10,7 +10,7 @@ const MainPage = () => {
     return (
         <PageBodyWrapper>
             <motion.div
-                className={"MainPage"}
+                className={"MainPage bg-main min-h-screen select-none pb-24"}
                 initial={{opacity: 0}}
                 animate={{opacity: 3}}
                 exit={{opacity: 0}}

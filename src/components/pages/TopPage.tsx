@@ -4,7 +4,7 @@ import PageBodyWrapper from "./PageBodyWrapper.tsx";
 const TopPage = () => {
     return (
         <motion.div
-            className={"TopPage bg-main h-screen"}
+            className={"TopPage bg-main min-h-screen select-none pb-24"}
             initial={{opacity: 0}}
             animate={{opacity: 3}}
             exit={{opacity: 0}}

@@ -9,7 +9,7 @@ const FriendsPage = () => {
     return (
         <PageBodyWrapper>
             <motion.div
-                className={"TopPage bg-main h-screen select-none pb-24"}
+                className={"TopPage bg-main min-h-screen select-none pb-24"}
                 initial={{opacity: 0}}
                 animate={{opacity: 2}}
                 exit={{opacity:0}}
