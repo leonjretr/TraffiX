@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 const TasksPage = () => {
     return (
         <motion.div
-            className={"TasksPage bg-main h-screen pb-24"}
+            className={"TasksPage bg-main min-h-screen select-none pb-24"}
             initial={{opacity: 0}}
             animate={{opacity: 3}}
             exit={{opacity: 0}}
