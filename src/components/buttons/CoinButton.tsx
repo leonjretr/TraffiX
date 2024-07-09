@@ -6,7 +6,7 @@ interface CoinButtonProps {
     profitphour: number
 }
 
-const CoinButton: FC<CoinButtonProps> = ({profitphour}) => {
+const CoinButton: FC<CoinButtonProps> = () => {
 
     const Imgs = {
         coinImg: new URL("/imgs/coin.png", import.meta.url).href,
