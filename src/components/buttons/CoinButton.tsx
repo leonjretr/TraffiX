@@ -1,7 +1,49 @@
-const CoinButton = () => {
+// import {motion} from "framer-motion";
+import { motion } from "framer-motion";
+import {FC, useEffect, useState} from "react";
+
+interface CoinButtonProps {
+    profitphour: number
+}
+
+const CoinButton: FC<CoinButtonProps> = () => {
+
     const Imgs = {
         coinImg: new URL("/imgs/coin.png", import.meta.url).href,
     };
+    const [positionX, setPositionX] = useState<number>(0);
+    const [positionY, setPositionY] = useState<number>(0);
+    const [isVisible, setIsVisible] = useState(false);
+    // let profitptap = profitphour / 1200;
+    // console.log(profitptap);
+
+    let startTouchX: number = 0;
+    let startTouchY: number = 0;
+
+    const handleClick = () => {
+        const clickbutton = document.getElementById("coinbutton");
+
+        if (clickbutton) {
+            clickbutton.addEventListener("touchstart", (event) => {
+                startTouchX = event.changedTouches[0].pageX;
+                startTouchY = event.changedTouches[0].pageY;
+                setPositionX(startTouchX);
+                setPositionY(startTouchY);
+                console.log("position X:" + positionX);
+                console.log("position Y:" + positionY);
+                setIsVisible(true);
+                console.log(isVisible);
+            })
+        }
+    }
+    useEffect(() => {
+        if (isVisible) {
+            const timer = setTimeout(() => {
+                setIsVisible(false);
+            }, 1000); // Hide after 2 seconds
+            return () => clearTimeout(timer); // Cleanup the timer
+        }
+    }, [isVisible]);
 
     return (
         <div className={"MainPageTapCoin"}>
@@ -13,9 +55,23 @@ const CoinButton = () => {
                          }
                     />
                     <button
+                        id={"coinbutton"}
                         className={"absolute inset-0 justify-center rounded-full w-72 h-72 mob1:w-80 mob1:h-80 mob2:w-96 mob2:h-96 mob3:w-100 mob3:h-100 mx-auto bg-transparent"}
-                        onClick={() => window.open("https://instagram.com")}
-                    ></button>
+                        onClick={handleClick}>
+                    </button>
+
+                    {isVisible && (
+                        <motion.div
+                            initial={{opacity: 0}}
+                            animate={{opacity: 5}}
+                            exit={{opacity:0}}
+                            transition={{duration:0.5}}
+                            className="profit-per-tap bg-transparent text-white text-4xl font-bold font-poppinsFont select-none"
+                            style={{top: `${positionY}px`, left: `${positionX}px`, position: 'absolute'}}
+                        >
+                            +7
+                        </motion.div>
+                    )}
                 </div>
             </div>
         </div>

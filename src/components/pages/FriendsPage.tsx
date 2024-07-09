@@ -7,14 +7,14 @@ const FriendsPage = () => {
 
     const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;
     return (
+        <PageBodyWrapper>
             <motion.div
-                className={"TopPage bg-main h-dvh select-none pb-24"}
+                className={"TopPage bg-main h-screen select-none pb-24"}
                 initial={{opacity: 0}}
                 animate={{opacity: 2}}
                 exit={{opacity:0}}
                 transition={{duration:0.2}}
             >
-                <PageBodyWrapper>
                     <div className="flex flex-col items-center justify-center overflow-y-auto">
                         <img src={friendsUrl} alt={"Referral"}
                              className={"w-56 h-56 mob1:w-60 mob1:h-60 mob2:w-72 mob2:h-72 mob3:w-96 mob3:h-96 mt-5"}/>
@@ -56,8 +56,8 @@ const FriendsPage = () => {
                             </div>
                         </div>
                     </div>
-                </PageBodyWrapper>
             </motion.div>
+        </PageBodyWrapper>
     );
 };
 
