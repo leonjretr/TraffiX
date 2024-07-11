@@ -1,19 +1,13 @@
-import Header from "./components/header/Header.tsx";
-import MainPageBody from "./components/main-page/MainPageBody.tsx";
-import Footer from "./components/footer/Footer.tsx";
+import {BrowserRouter as Router} from "react-router-dom";
+import AnimatedRoute from "./components/pages/AnimatedRoute.tsx";
 
 const App = () => {
+
     return (
-        <div className="App bg-main">
-            <div className={"Header"}>
-                <Header/>
-            </div>
-            <div className={"MainPageBody"}>
-                <MainPageBody/>
-            </div>
-            <div className={"Footer"}>
-                <Footer/>
-            </div>
+        <div className="App bg-main h-screen min-h-screen">
+            <Router>
+                <AnimatedRoute/>
+            </Router>
         </div>
     );
 };
