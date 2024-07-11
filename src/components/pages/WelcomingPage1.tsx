@@ -32,7 +32,7 @@ const WelcomingPage1 = () => {
                 </Link>
                 <Outlet/>
             </div>
-            <div className={"flex gap-2 justify-center mt-5"}>
+            <div className={"flex gap-2 justify-center"}>
                 <PaginationGuideButton bgCurrent={true}/>
                 <PaginationGuideButton bgCurrent={false}/>
                 <PaginationGuideButton bgCurrent={false}/>
