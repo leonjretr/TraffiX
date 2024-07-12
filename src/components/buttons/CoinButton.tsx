@@ -1,12 +1,14 @@
 // import {motion} from "framer-motion";
 import {motion} from "framer-motion";
 import {FC, useEffect, useState} from "react";
+import userBalance from "../stores/userBalance.ts";
+import {observer} from "mobx-react-lite";
 
 interface CoinButtonProps {
     profitphour: number
 }
 
-const CoinButton: FC<CoinButtonProps> = () => {
+const CoinButton: FC<CoinButtonProps> = observer(() => {
 
     const Imgs = {
         coinImg: new URL("/imgs/coin.png", import.meta.url).href,
@@ -19,7 +21,7 @@ const CoinButton: FC<CoinButtonProps> = () => {
     let startTouchX: number = 0;
     let startTouchY: number = 0;
 
-    const handleClick = () => {
+    const handleClickAnimation = () => {
         const clickbutton = document.getElementById("coinbutton");
 
         if (clickbutton) {
@@ -33,6 +35,20 @@ const CoinButton: FC<CoinButtonProps> = () => {
             })
         }
     }
+
+    const handleBalanceIncrease = () => {
+        userBalance.tapIncrement();
+    }
+
+    // const handlePPhIncrease = () => {
+    //     userBalance.tapIncrementPPH();
+    // }
+
+    const handleClick = () => {
+        handleClickAnimation();
+        handleBalanceIncrease();
+    }
+
     useEffect(() => {
         if (isVisible) {
             const timer = setTimeout(() => {
@@ -61,30 +77,30 @@ const CoinButton: FC<CoinButtonProps> = () => {
                         <motion.div
                             initial={{
                                 opacity: 0,
-                                x: `${positionX*0.05}px`,
-                                y: `${positionY*0.05}px`
+                                x: `${positionX * 0.05}px`,
+                                y: `${positionY * 0.05}px`
                             }}
                             animate={{
                                 opacity: 3,
-                                x: `${positionX*0.05}px`,
-                                y: `${positionY*0.05-200}px`
+                                x: `${positionX * 0.05}px`,
+                                y: `${positionY * 0.05 - 200}px`
                             }}
                             exit={{
                                 opacity: 0,
-                                x: `${positionX*0.05}px`,
-                                y: `${positionY*0.05}px`
+                                x: `${positionX * 0.05}px`,
+                                y: `${positionY * 0.05}px`
                             }}
                             transition={{duration: 0.1}}
                             className="profit-per-tap bg-transparent text-white text-4xl font-bold font-poppinsFont select-none"
-                            style={{top: `${positionY * 0.5}px`, left: `${positionX*0.5}px`, position: 'absolute'}}
+                            style={{top: `${positionY * 0.5}px`, left: `${positionX * 0.5}px`, position: 'absolute'}}
                         >
-                            +7
+                            +1
                         </motion.div>
                     )}
                 </div>
             </div>
         </div>
     );
-};
+});
 
 export default CoinButton;

@@ -10,14 +10,14 @@ const MainPage = () => {
     return (
         <PageBodyWrapper>
             <motion.div
-                className={"MainPage bg-main min-h-screen select-none pb-24"}
+                className={"MainPage bg-main min-h-dvh select-none overflow-hidden pb-10"}
                 initial={{opacity: 0}}
                 animate={{opacity: 3}}
                 exit={{opacity: 0}}
                 transition={{duration: 0.2}}
             >
 
-                <div className={"pb-24"}>
+                <div className={"min-h-screen"}>
                     <StatBoard stats={stats}/>
                     <CoinButton profitphour={stats.profitphour}/>
                 </div>

@@ -1,20 +1,24 @@
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import {Link, Outlet} from "react-router-dom";
+import PaginationGuideButton from "../buttons/PaginationGuideButton.tsx";
 
 const WelcomingPage1 = () => {
     const app1 = new URL("/imgs/ourApp.png", import.meta.url).href;
+
     return (
         <motion.div
             className={"WelcomingPage1 bg-black min-h-screen"}
             initial={{opacity: 0}}
             animate={{opacity: 3}}
-            exit={{opacity:0}}
-            transition={{duration:0.2}}>
-            <div className={"font-poppinsFont font-semibold text-center pt-16 select-none px-10"}>
+            exit={{opacity: 0}}
+            transition={{duration: 0.2}}>
+            <div className={"font-poppinsFont font-semibold text-center pt-12 select-none px-10"}>
                 <h1 className={"text-white text-2xl mob3:text-3xl sm:text-4xl"}>Welcome to our app!</h1>
                 <h1 className={"text-white text-xl mob3:text-2xl sm:text-3xl mt-4"}>Everything is easy:</h1>
-                <h1 className={"text-white text-lg mob3:text-2xl sm:text-3xl font-bold"}>Tap the button - earn a coin</h1>
-                <h1 className={"text-gray-400 text-xs mob3:text-base sm:text-xl mt-5"}>Additional things like boosts will be added
+                <h1 className={"text-white text-lg mob3:text-2xl sm:text-3xl font-bold"}>Tap the button - earn a
+                    coin</h1>
+                <h1 className={"text-gray-400 text-xs mob3:text-base sm:text-xl mt-5"}>Additional things like boosts
+                    will be added
                     soon...</h1>
             </div>
             <div className={"flex justify-center mt-8"}>
@@ -27,6 +31,11 @@ const WelcomingPage1 = () => {
                     Got it!
                 </Link>
                 <Outlet/>
+            </div>
+            <div className={"flex gap-2 justify-center mt-5"}>
+                <PaginationGuideButton bgCurrent={true}/>
+                <PaginationGuideButton bgCurrent={false}/>
+                <PaginationGuideButton bgCurrent={false}/>
             </div>
         </motion.div>
     );
