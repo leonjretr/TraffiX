@@ -5,7 +5,7 @@ import PageBodyWrapper from "./PageBodyWrapper.tsx";
 import {motion} from "framer-motion";
 
 const MainPage = () => {
-    const stats: IStats = {balance: 1200, profitphour: 100};
+    const stats: IStats = {balance: 1200, profitphour: 0};
 
     return (
         <PageBodyWrapper>
