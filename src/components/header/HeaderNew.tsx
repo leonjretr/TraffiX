@@ -5,7 +5,7 @@ import {IStats} from "../types/types.tsx";
 
 const HeaderNew = () => {
     const avatarUrl = new URL("/imgs/bradpitt.jpg", import.meta.url).href;
-    const stats: IStats = {balance: 1200};
+    const stats: IStats = {balance: 0, profitphour:0};
 
     return (
         <motion.div
