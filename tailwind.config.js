@@ -12,6 +12,9 @@ export default {
         addShade: "#372F4B",
         sandish: "#8C7EA0",
         wheat:"#F6E2B6",
+        greenNew:"#37897A",
+        bgNew:"#292929",
+        grayNew:"#8FB6B0",
       },
       fontFamily:{
         niceFont:['Lora'],

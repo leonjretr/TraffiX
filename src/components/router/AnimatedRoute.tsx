@@ -1,14 +1,15 @@
 import {Route, Routes, useLocation, useNavigate} from "react-router-dom";
-import FriendsPage from "./FriendsPage.tsx";
-import TasksPage from "./TasksPage.tsx";
-import TopPage from "./TopPage.tsx";
-import ShopPage from "./ShopPage.tsx";
+import FriendsPage from "../pages/FriendsPage.tsx";
+import TasksPage from "../pages/TasksPage.tsx";
+import TopPage from "../pages/TopPage.tsx";
+import ShopPage from "../pages/ShopPage.tsx";
 import {AnimatePresence} from "framer-motion";
 import {useEffect, useState} from "react";
-import WelcomingPage1 from "./WelcomingPage1.tsx";
-import MainPage from "./MainPage.tsx";
-import WelcomingPage2 from "./WelcomingPage2.tsx";
-import WelcomingPage3 from "./WelcomingPage3.tsx";
+import WelcomingPage1 from "../pages/WelcomingPage1.tsx";
+import MainPage from "../pages/MainPage.tsx";
+import WelcomingPage2 from "../pages/WelcomingPage2.tsx";
+import WelcomingPage3 from "../pages/WelcomingPage3.tsx";
+import MainPageNew from "../pages/MainPageNew.tsx";
 
 const AnimatedRoute = () => {
 
@@ -77,6 +78,7 @@ const AnimatedRoute = () => {
         <AnimatePresence>
             <Routes location={location} key={location.pathname}>
                 <Route path="/main" element={<MainPage/>}/>
+                <Route path="/testnew" element={<MainPageNew/>}/>
                 <Route path="/friends" element={<FriendsPage/>}/>
                 <Route path="/top" element={<TopPage/>}/>
                 <Route path="/tasks" element={<TasksPage/>}/>
