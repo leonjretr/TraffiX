@@ -7,10 +7,10 @@ const HeaderNavbar = () => (
               animate={{opacity: 5}}
               exit={{opacity:0}}
               transition={{duration:0.5}}>
-    <button className="text-white active:text-wheat focus:ring-wheat text-3xl sm:text-4xl md:text-5xl">
+    <button className="text-white active:text-grayNew focus:ring-grayNew text-3xl sm:text-4xl md:text-5xl">
       <IoIosWallet />
     </button>
-    <button className="text-white active:text-wheat focus:ring-wheat text-3xl sm:text-4xl md:text-5xl">
+    <button className="text-white active:text-grayNew focus:ring-grayNew text-3xl sm:text-4xl md:text-5xl">
       <IoMdSettings />
     </button>
   </motion.div>
