@@ -14,6 +14,7 @@ export default {
         wheat:"#F6E2B6",
         greenNew:"#37897A",
         bgNew:"#292929",
+        bgNewShade:"#1B1B1B",
         grayNew:"#8FB6B0",
       },
       fontFamily:{

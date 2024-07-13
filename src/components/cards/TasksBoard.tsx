@@ -21,7 +21,7 @@ const TasksBoard: FC<TaskBoardProps> = ({category}) => {
     return (
         <div className={"TaskBoard pb-5"}>
             <h1 className={"text-white text-2xl font-poppinsFont text-center mt-5 select-none"}>{category}</h1>
-            <div className="flex flex-col columns-1 px-4">
+            <div className="flex flex-col columns-1 px-6">
 
                 {cardsData.map((card, index) =>
                     <TasksCard key={index} avatar={card.avatar} taskTitle={card.taskTitle} taskProfit={card.taskProfit}

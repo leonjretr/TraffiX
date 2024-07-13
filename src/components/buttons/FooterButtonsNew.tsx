@@ -7,7 +7,6 @@ interface FooterButtonsNewProps {
     icon:ReactElement;
 }
 
-
 const FooterButtonsNew:FC<FooterButtonsNewProps> = ({routingPath, label, icon}) => {
     return (
         <Link

@@ -25,7 +25,7 @@ const WelcomingPage3 = () => {
                 <PaginationGuideButton bgCurrent={true}/>
             </div>
             <div className={"flex justify-end"}>
-                <Link to={"/testnew"}
+                <Link to={"/main"}
                       className={"w-30 h-12 text-base mob3:w-32 mob3:h-20 mob2:text-xl mr-5 mt-5 mob3:mt-15 text-center rounded-lg text-white font-semibold place-items-center font-poppinsFont bg-purple-700 focus:bg-purple-900 focus:ring-4 focus:ring-purple-300 px-5 py-2.5 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"}>
                     Let's dive!
                 </Link>

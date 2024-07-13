@@ -1,20 +1,20 @@
 import React, { FC } from "react";
-import HeaderNew from "../header/HeaderNew.tsx";
 import FooterNew from "../footer/FooterNew.tsx";
+import HeaderOtherNew from "../header/HeaderOtherNew.tsx";
 
 
 interface PageWrapperNewProperties {
     children: React.ReactNode;
 }
 
-const PageBodyWrapperNew: FC<PageWrapperNewProperties> = ({ children }) => {
+const MainPageWrapper: FC<PageWrapperNewProperties> = ({ children }) => {
     return (
         <div>
-            <HeaderNew />
+            <HeaderOtherNew />
             {children}
             <FooterNew />
         </div>
     );
 };
 
-export default PageBodyWrapperNew;
+export default MainPageWrapper;

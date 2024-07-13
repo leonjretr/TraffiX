@@ -1,25 +1,25 @@
-import PageBodyWrapper from "./PageBodyWrapper.tsx";
 import TasksBoard from "../cards/TasksBoard.tsx";
 import { motion } from "framer-motion";
+import OtherPagesWrapper from "./OtherPagesWrapper.tsx";
 
-const TasksPage = () => {
+const TasksPageNew = () => {
     return (
         <motion.div
-            className={"TasksPage bg-main min-h-screen select-none"}
+            className={"TasksPage bg-bgNewShade min-h-screen select-none"}
             initial={{opacity: 0}}
             animate={{opacity: 3}}
             exit={{opacity: 0}}
             transition={{duration: 0.2}}
         >
-            <PageBodyWrapper>
-                <div className={"bg-main overflow-y-auto pb-24"}>
+            <OtherPagesWrapper>
+                <div className={"bg-bgNewShade overflow-y-auto pb-24"}>
                     <TasksBoard category={"Instagram tasks"}/>
                     <TasksBoard category={"Telegram tasks"}/>
                     <TasksBoard category={"Youtube tasks"}/>
                 </div>
-            </PageBodyWrapper>
+            </OtherPagesWrapper>
         </motion.div>
     );
 };
 
-export default TasksPage;
+export default TasksPageNew;

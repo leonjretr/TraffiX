@@ -1,15 +1,15 @@
-import PageBodyWrapper from "./PageBodyWrapper.tsx";
 import CopyButton from "../buttons/CopyButton.tsx";
 import { motion } from "framer-motion";
+import OtherPagesWrapper from "./OtherPagesWrapper.tsx";
 
 
 const FriendsPage = () => {
 
     const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;
     return (
-        <PageBodyWrapper>
+        <OtherPagesWrapper>
             <motion.div
-                className={"TopPage bg-main min-h-screen select-none pb-10"}
+                className={"TopPage bg-bgNewShade min-h-screen select-none pb-10"}
                 initial={{opacity: 0}}
                 animate={{opacity: 2}}
                 exit={{opacity:0}}
@@ -57,7 +57,7 @@ const FriendsPage = () => {
                         </div>
                     </div>
             </motion.div>
-        </PageBodyWrapper>
+        </OtherPagesWrapper>
     );
 };
 
