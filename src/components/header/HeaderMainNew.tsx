@@ -3,13 +3,13 @@ import HeaderNavbar from "../navbars/HeaderNavbar.tsx";
 import StatBoardNew from "../cards/StatBoardNew.tsx";
 import {IStats} from "../types/types.tsx";
 
-const HeaderNew = () => {
+const HeaderMainNew = () => {
     const avatarUrl = new URL("/imgs/bradpitt.jpg", import.meta.url).href;
     const stats: IStats = {balance: 0, profitphour:0};
 
     return (
         <motion.div
-            className="bg-greenNew shadow-lg shadow-greenNew/50 ring-2 ring-greenNew p-4 rounded-br-3xl rounded-bl-3xl w-auto h-64 mob1:h-72 select-none"
+            className="bg-greenNew p-4 rounded-br-3xl rounded-bl-3xl w-auto h-72 mob3:h-80 select-none"
             initial={{opacity: 0}}
             animate={{opacity: 5}}
             exit={{opacity: 0}}
@@ -23,9 +23,9 @@ const HeaderNew = () => {
                         alt="User Avatar"
                     />
                     <div className="ml-4 text-white">
-                        <div className="text-sm mob2:text-lg font-poppinsFont font-medium text-grayNew">good afternoon,
+                        <div className="text-sm mob3:text-lg font-poppinsFont font-medium text-grayNew">good afternoon,
                         </div>
-                        <div className="text-xl mob2:text-3xl font-poppinsFont font-semibold">Michael</div>
+                        <div className="text-xl mob3:text-3xl font-poppinsFont font-semibold">Michael</div>
                     </div>
                 </div>
                 <div className={"mt-6"}>
@@ -43,4 +43,4 @@ const HeaderNew = () => {
     );
 };
 
-export default HeaderNew;
+export default HeaderMainNew;

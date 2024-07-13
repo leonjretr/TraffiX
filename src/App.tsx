@@ -4,7 +4,7 @@ import AnimatedRoute from "./components/router/AnimatedRoute.tsx";
 const App = () => {
 
     return (
-        <div className="App bg-main min-h-screen">
+        <div className="App bg-bgNew min-h-screen">
             <Router>
                 <AnimatedRoute/>
             </Router>
