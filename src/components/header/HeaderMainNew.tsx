@@ -9,7 +9,7 @@ const HeaderMainNew = () => {
 
     return (
         <motion.div
-            className="bg-greenNew p-4 rounded-br-3xl rounded-bl-3xl w-auto h-72 mob3:h-80 select-none"
+            className="bg-greenNew top-0 p-4 rounded-br-3xl rounded-bl-3xl w-auto h-60 mob1:h-64 mob2:h-72 mob3:h-80 select-none"
             initial={{opacity: 0}}
             animate={{opacity: 5}}
             exit={{opacity: 0}}
@@ -32,9 +32,9 @@ const HeaderMainNew = () => {
                     <HeaderNavbar/>
                 </div>
             </div>
-            <div className="text-white mt-10 ml-2 sm:ml-2 md:ml-3">
-                <div className="text-sm md:text-lg font-poppinsFont font-medium text-grayNew">your league</div>
-                <div className="text-xl md:text-xl font-poppinsFont font-semibold">developer</div>
+            <div className="text-white mt-5 mob1:mt-7 ml-2 sm:ml-2 md:ml-3">
+                <div className="text-sm md:text-base font-poppinsFont font-medium text-grayNew">your league</div>
+                <div className="text-xl md:text-lg font-poppinsFont font-semibold">developer</div>
             </div>
             <div>
                 <StatBoardNew stats={stats}/>

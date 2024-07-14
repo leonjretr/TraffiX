@@ -11,12 +11,12 @@ interface MainPageStatCardProps {
 const StatBoard: FC<MainPageStatCardProps> = observer(() => {
     return (
         <div className="flex columns-2 w-full px-4 justify-evenly mt-4">
-            <BalanceCardNew title="Your balance" amount={userBalance.balance} currency="KBs"
+            <BalanceCardNew title="your balance" amount={userBalance.balance} currency="KBs"
             bgColor={"black"}
             textColor={"white"}/>
             <div className="ml-4"/>
             <BalanceCardNew
-                title="Profit per hour"
+                title="profit per hour"
                 amount={userBalance.profitperhour}
                 currency="KBs"
                 bgColor={"white"}
