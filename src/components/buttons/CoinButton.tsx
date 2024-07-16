@@ -1,4 +1,3 @@
-// import {motion} from "framer-motion";
 import {motion} from "framer-motion";
 import {FC, useEffect, useState} from "react";
 import userBalance from "../stores/userBalance.ts";
@@ -61,15 +60,15 @@ const CoinButton: FC<CoinButtonProps> = observer(() => {
     return (
         <div className={"MainPageTapCoin"}>
             <div className={"flex justify-center"}>
-                <div className={"relative inline-block mt-8 mob1:mt-10 mob2:mt-14"}>
+                <div className={"relative inline-block mt-4 mob1:mt-8 mob2:mt-14"}>
                     <img src={Imgs.coinImg} alt={"TapCoin"}
                          className={
-                             "flex w-72 h-72 mob1:w-80 mob1:h-80 mob2:w-96 mob2:h-96 mob3:w-100 mob3:h-100 mx-auto"
+                             "flex w-64 h-64 mob1:w-80 mob1:h-80 mob2:w-90 mob2:h-90 mx-auto"
                          }
                     />
                     <button
                         id={"coinbutton"}
-                        className={"absolute inset-0 justify-center rounded-full w-72 h-72 mob1:w-80 mob1:h-80 mob2:w-96 mob2:h-96 mob3:w-100 mob3:h-100 mx-auto bg-transparent"}
+                        className={"absolute inset-0 justify-center rounded-full w-64 h-64 mob1:w-80 mob1:h-80 mob2:w-90 mob2:h-90 mx-auto bg-transparent"}
                         onClick={handleClick}>
                     </button>
 
