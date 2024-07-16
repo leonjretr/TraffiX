@@ -1,4 +1,3 @@
-// import {motion} from "framer-motion";
 import {motion} from "framer-motion";
 import {FC, useEffect, useState} from "react";
 import userBalance from "../stores/userBalance.ts";

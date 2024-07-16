@@ -2,10 +2,29 @@ import {motion} from "framer-motion";
 import HeaderNavbar from "../navbars/HeaderNavbar.tsx";
 import StatBoardNew from "../cards/StatBoardNew.tsx";
 import {IStats} from "../types/types.tsx";
+// import {useEffect, useState} from "react";
+
+// interface userProps {
+//     id: number;
+//     username: string;
+// }
 
 const HeaderMainNew = () => {
     const avatarUrl = new URL("/imgs/bradpitt.jpg", import.meta.url).href;
-    const stats: IStats = {balance: 0, profitphour:0};
+    const stats: IStats = {balance: 0, profitphour: 0};
+    // const [users, setUsers] = useState<userProps[]>([]);
+
+    const tg = window.Telegram.WebApp;
+    const userok = tg.initDataUnsafe?.user;
+    console.log(userok);
+
+    // async function fetchUser(): Promise<userProps[]> {
+    //     const response = await fetch("https://traffix-api.onrender.com/api/v1/users/");
+    //     return response.json();
+    // }
+    // useEffect(() => {
+    //     fetchUser().then((data: userProps[]) => setUsers(data));
+    // }, []);
 
     return (
         <motion.div
@@ -23,9 +42,12 @@ const HeaderMainNew = () => {
                         alt="User Avatar"
                     />
                     <div className="ml-4 text-white">
-                        <div className="text-sm mob3:text-lg font-poppinsFont font-medium text-grayNew">good afternoon,
+
+                        <div className="text-sm mob3:text-lg font-poppinsFont font-medium text-grayNew">
+                            good afternoon,
                         </div>
-                        <div className="text-xl mob3:text-3xl font-poppinsFont font-semibold">Michael</div>
+
+                        <div className="text-xl mob3:text-3xl font-poppinsFont font-semibold">{userok?.username}</div>
                     </div>
                 </div>
                 <div className={"mt-6"}>
