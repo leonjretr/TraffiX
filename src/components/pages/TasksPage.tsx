@@ -13,9 +13,9 @@ const TasksPage = () => {
         >
             <PageBodyWrapper>
                 <div className={"bg-main overflow-y-auto pb-24"}>
-                    <TasksBoard category={"Instagram tasks"}/>
-                    <TasksBoard category={"Telegram tasks"}/>
-                    <TasksBoard category={"Youtube tasks"}/>
+                    <TasksBoard/>
+                    <TasksBoard/>
+                    <TasksBoard/>
                 </div>
             </PageBodyWrapper>
         </motion.div>
