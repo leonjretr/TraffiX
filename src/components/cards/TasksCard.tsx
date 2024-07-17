@@ -3,16 +3,16 @@ import {FaCheck} from "react-icons/fa6";
 import {MdArrowForwardIos} from "react-icons/md";
 
 interface TasksCardProps {
-    avatar: string;
+    avatar: string | undefined;
     taskTitle: string;
     taskProfit: string;
-    completed: boolean;
+    category:string;
 }
 
-const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit, completed}) => {
+const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit}) => {
 
     const coinUrl = new URL("/imgs/coin.png", import.meta.url).href;
-
+    const completed:boolean = true;
     return (
         <div className="TasksCard flex columns-2 flex-row justify-center select-none">
             <div

@@ -1,8 +1,9 @@
 import TasksBoard from "../cards/TasksBoard.tsx";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 import OtherPagesWrapper from "./OtherPagesWrapper.tsx";
 
 const TasksPageNew = () => {
+
     return (
         <motion.div
             className={"TasksPage bg-bgNewShade min-h-screen select-none"}
@@ -13,9 +14,10 @@ const TasksPageNew = () => {
         >
             <OtherPagesWrapper>
                 <div className={"bg-bgNewShade overflow-y-auto pb-24"}>
-                    <TasksBoard category={"Instagram tasks"}/>
-                    <TasksBoard category={"Telegram tasks"}/>
-                    <TasksBoard category={"Youtube tasks"}/>
+                    <TasksBoard/>
+                    {/*<TasksBoard category={"Instagram tasks"}/>*/}
+                    {/*<TasksBoard category={"Telegram tasks"}/>*/}
+                    {/*<TasksBoard category={"Youtube tasks"}/>*/}
                 </div>
             </OtherPagesWrapper>
         </motion.div>

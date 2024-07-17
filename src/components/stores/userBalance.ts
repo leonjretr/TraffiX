@@ -1,9 +1,9 @@
 import {makeAutoObservable} from "mobx";
 
 class userBalance {
+
     balance: number = 0;
     profitperhour: number = 0;
-    prevBalance: number = 0;
 
     constructor() {
         makeAutoObservable(this);
