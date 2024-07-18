@@ -1,6 +1,6 @@
 import {motion} from "framer-motion";
 import {FC, useEffect, useState} from "react";
-import userBalance from "../stores/userBalance.ts";
+import userBalance from "../../stores/userBalance.ts";
 import {observer} from "mobx-react-lite";
 
 interface CoinButtonProps {
@@ -38,10 +38,6 @@ const CoinButton: FC<CoinButtonProps> = observer(() => {
     const handleBalanceIncrease = () => {
         userBalance.tapIncrement();
     }
-
-    // const handlePPhIncrease = () => {
-    //     userBalance.tapIncrementPPH();
-    // }
 
     const handleClick = () => {
         handleClickAnimation();

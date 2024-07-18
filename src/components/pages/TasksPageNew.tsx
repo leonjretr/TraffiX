@@ -15,9 +15,6 @@ const TasksPageNew = () => {
             <OtherPagesWrapper>
                 <div className={"bg-bgNewShade overflow-y-auto pb-24"}>
                     <TasksBoard/>
-                    {/*<TasksBoard category={"Instagram tasks"}/>*/}
-                    {/*<TasksBoard category={"Telegram tasks"}/>*/}
-                    {/*<TasksBoard category={"Youtube tasks"}/>*/}
                 </div>
             </OtherPagesWrapper>
         </motion.div>

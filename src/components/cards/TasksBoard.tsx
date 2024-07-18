@@ -1,7 +1,7 @@
 import TasksCard from "../cards/TasksCard.tsx";
 import {useEffect, useState} from "react";
 import {ITaskApiResponse} from "../types/types.tsx";
-import fetchTasks from "../fetches/fetchTasks.ts";
+import fetchTasks from "../../fetches/fetchTasks.ts";
 
 
 const TasksBoard = () => {

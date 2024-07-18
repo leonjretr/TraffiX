@@ -1,7 +1,7 @@
 import {FC} from "react";
 import {IStats} from "../types/types";
 import BalanceCard from "./BalanceCard.tsx";
-import userBalance from "../stores/userBalance.ts";
+import userBalance from "../../stores/userBalance.ts";
 import {observer} from "mobx-react-lite";
 
 interface MainPageStatCardProps {
