@@ -3,7 +3,7 @@ import FriendsPage from "../pages/FriendsPage.tsx";
 import TopPage from "../pages/TopPage.tsx";
 import ShopPage from "../pages/ShopPage.tsx";
 import {AnimatePresence} from "framer-motion";
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import WelcomingPage1 from "../pages/WelcomingPage1.tsx";
 import WelcomingPage2 from "../pages/WelcomingPage2.tsx";
 import WelcomingPage3 from "../pages/WelcomingPage3.tsx";
@@ -15,73 +15,80 @@ const AnimatedRoute = () => {
     const navigate = useNavigate();
     let location = useLocation();
 
-    const [isSwipedRight, setSwipedRight] = useState<boolean>(false);
-    const [isSwipedLeft, setSwipedLeft] = useState<boolean>(false);
-
     useEffect(() => {
         let startTouchX: number = 0;
         let endTouchX: number = 0;
-        document.addEventListener("touchstart", (event) => {
+        const threshold = 50; // minimum swipe distance in pixels
+
+        const handleTouchStart = (event: TouchEvent) => {
             startTouchX = event.changedTouches[0].pageX;
-            //console.log(startTouchX);
-        })
-        document.addEventListener("touchend", (event) => {
+        };
+
+        const handleTouchEnd = (event: TouchEvent) => {
             endTouchX = event.changedTouches[0].pageX;
-            //console.log(endTouchX);
-            if (endTouchX > startTouchX) {
-                setSwipedRight(true)
+            const swipeDistance = endTouchX - startTouchX;
+
+            if (swipeDistance > threshold) {
+                handleSwipeRight();
+            } else if (swipeDistance < -threshold) {
+                handleSwipeLeft();
             }
-            if (startTouchX > endTouchX) {
-                setSwipedLeft(true)
+        };
+
+        const handleSwipeRight = () => {
+            switch (location.pathname) {
+                case '/main':
+                    navigate("/friends", {replace: true});
+                    break;
+                case '/tasks':
+                    navigate("/main", {replace: true});
+                    break;
+                case '/shop':
+                    navigate("/tasks", {replace: true});
+                    break;
+                case '/top':
+                    break;
+                case '/friends':
+                    navigate("/top", {replace: true});
+                    break;
             }
-            if (isSwipedRight) {
-                switch (location.pathname) {
-                    case '../':
-                        navigate("../tasks", {replace: true})
-                        break;
-                    case '../tasks':
-                        navigate("../shop", {replace: true})
-                        break;
-                    case '../shop':
-                        break;
-                    case '../top':
-                        navigate("../friends", {replace: true})
-                        break;
-                    case '../friends':
-                        navigate("../tap", {replace: true})
-                        break;
-                }
+        };
+
+        const handleSwipeLeft = () => {
+            switch (location.pathname) {
+                case '/main':
+                    navigate("/tasks", {replace: true});
+                    break;
+                case '/friends':
+                    navigate("/main", {replace: true});
+                    break;
+                case '/top':
+                    navigate("/friends", {replace: true});
+                    break;
+                case '/shop':
+                    break;
+                case '/tasks':
+                    navigate("/shop", {replace: true});
+                    break;
             }
-            if (isSwipedLeft) {
-                switch (location.pathname) {
-                    case '../':
-                        navigate("../friends", {replace: true})
-                        break;
-                    case '../friends':
-                        navigate("../top", {replace: true})
-                        break;
-                    case '../top':
-                        break;
-                    case '../shop':
-                        navigate("../tasks", {replace: true})
-                        break;
-                    case '../tasks':
-                        navigate("../", {replace: true})
-                        break;
-                }
-            }
-        })
-    }, [])
+        };
+
+        document.addEventListener("touchstart", handleTouchStart);
+        document.addEventListener("touchend", handleTouchEnd);
+
+        return () => {
+            document.removeEventListener("touchstart", handleTouchStart);
+            document.removeEventListener("touchend", handleTouchEnd);
+        };
+    }, [location.pathname, navigate]);
 
     return (
         <AnimatePresence>
             <Routes location={location} key={location.pathname}>
-                {/*<Route path="/main" element={<MainPage/>}/>*/}
                 <Route path="/main" element={<MainPageNew/>}/>
                 <Route path="/tasks" element={<TasksPageNew/>}/>
                 <Route path="/friends" element={<FriendsPage/>}/>
                 <Route path="/top" element={<TopPage/>}/>
-                {/*<Route path="/tasks" element={<TasksPage/>}/>*/}
                 <Route path="/shop" element={<ShopPage/>}/>
                 <Route path={"/"} element={<WelcomingPage1/>}/>
                 <Route path={"/guide2"} element={<WelcomingPage2/>}/>

@@ -1,6 +1,6 @@
 import {FC} from "react";
 import {IStats} from "../types/types";
-import userBalance from "../stores/userBalance.ts";
+import userBalance from "../../stores/userBalance.ts";
 import {observer} from "mobx-react-lite";
 import BalanceCardNew from "./BalanceCardNew.tsx";
 
