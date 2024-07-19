@@ -29,7 +29,6 @@ const CoinButton: FC<CoinButtonProps> = observer(() => {
                 startTouchY = event.changedTouches[0].pageY;
                 setPositionX(startTouchX);
                 setPositionY(startTouchY);
-                console.log(positionY);
                 setIsVisible(true);
             })
         }
@@ -57,16 +56,18 @@ const CoinButton: FC<CoinButtonProps> = observer(() => {
         <div className={"MainPageTapCoin"}>
             <div className={"flex justify-center"}>
                 <div className={"relative inline-block mt-4 mob1:mt-8 mob2:mt-14"}>
-                    <img src={Imgs.coinImg} alt={"TapCoin"}
-                         className={
-                             "flex w-64 h-64 mob1:w-80 mob1:h-80 mob2:w-90 mob2:h-90 mx-auto"
-                         }
-                    />
-                    <button
-                        id={"coinbutton"}
-                        className={"absolute inset-0 justify-center rounded-full w-64 h-64 mob1:w-80 mob1:h-80 mob2:w-90 mob2:h-90 mx-auto bg-transparent"}
-                        onClick={handleClick}>
-                    </button>
+                    <motion.div
+                        whileTap={{scale: 0.92}}
+                        className={"rounded-full"}>
+                        <img src={Imgs.coinImg} alt={"TapCoin"}
+                             className={"flex rounded-full w-64 h-64 mob1:w-80 mob1:h-80 mob2:w-90 mob2:h-90 mx-auto"}
+                        />
+                        <button
+                            id={"coinbutton"}
+                            className={"absolute rounded-full inset-0 justify-center w-64 h-64 mob1:w-80 mob1:h-80 mob2:w-90 mob2:h-90 mx-auto bg-transparent"}
+                            onClick={handleClick}>
+                        </button>
+                    </motion.div>
 
                     {isVisible && (
                         <motion.div
