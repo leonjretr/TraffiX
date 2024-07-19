@@ -4,6 +4,10 @@ import PaginationGuideButton from "../buttons/PaginationGuideButton.tsx";
 
 const WelcomingPage1 = () => {
     const app1 = new URL("/imgs/ourApp.png", import.meta.url).href;
+    const text = "Welcome to our app!".split(" ");
+    const text2 = "Everything is easy:".split(" ");
+    const text3 = "Tap the button - earn a coin".split(" ");
+    const text4 = "Additional things like boosts will be added soon...".split(" ");
 
     return (
         <motion.div
@@ -13,13 +17,34 @@ const WelcomingPage1 = () => {
             exit={{opacity: 0}}
             transition={{duration: 0.2}}>
             <div className={"font-poppinsFont font-semibold text-center pt-12 select-none px-10"}>
-                <h1 className={"text-white text-2xl mob3:text-3xl sm:text-4xl"}>Welcome to our app!</h1>
-                <h1 className={"text-white text-xl mob3:text-2xl sm:text-3xl mt-4"}>Everything is easy:</h1>
-                <h1 className={"text-white text-lg mob3:text-2xl sm:text-3xl font-bold"}>Tap the button - earn a
-                    coin</h1>
-                <h1 className={"text-gray-400 text-xs mob3:text-base sm:text-xl mt-5"}>Additional things like boosts
-                    will be added
-                    soon...</h1>
+                <h1 className={"text-white text-2xl mob3:text-3xl sm:text-4xl"}>{text.map((el, i) => (
+                    <motion.span initial={{opacity: 0}} animate={{opacity: 1}}
+                                 transition={{duration: 0.5, delay: i / 10}}
+                                 key={i}>
+                        {el}{" "}
+                    </motion.span>
+                ))}</h1>
+                <h1 className={"text-white text-xl mob3:text-2xl sm:text-3xl mt-4"}>{text2.map((el, i) => (
+                    <motion.span initial={{opacity: 0}} animate={{opacity: 1}}
+                                 transition={{duration: 0.8, delay: i / 5}}
+                                 key={i}>
+                        {el}{" "}
+                    </motion.span>
+                ))}</h1>
+                <h1 className={"text-white text-lg mob3:text-2xl sm:text-3xl font-bold"}>{text3.map((el, i) => (
+                    <motion.span initial={{opacity: 0}} animate={{opacity: 1}}
+                                 transition={{duration: 1.2, delay: i / 4}}
+                                 key={i}>
+                        {el}{" "}
+                    </motion.span>
+                ))}</h1>
+                <h1 className={"text-gray-400 text-xs mob3:text-base sm:text-xl mt-5"}>{text4.map((el, i) => (
+                    <motion.span initial={{opacity: 0}} animate={{opacity: 1}}
+                                 transition={{duration: 1.5, delay: i / 5}}
+                                 key={i}>
+                        {el}{" "}
+                    </motion.span>
+                ))}</h1>
             </div>
             <div className={"flex justify-center mt-8"}>
                 <img src={app1} alt={"Screen1"}
@@ -30,11 +55,15 @@ const WelcomingPage1 = () => {
                 <PaginationGuideButton bgCurrent={false}/>
                 <PaginationGuideButton bgCurrent={false}/>
             </div>
-            <div className={"flex justify-end"}>
-                <Link to={"/guide2"}
-                      className={"w-24 h-12 mob3:w-32 mob3:h-20 mob3:text-2xl mr-5 mt-5 mob3:mt-14 mob3:pt-6 mob3:px-6 px-5 py-2.5 rounded-lg text-white font-semibold place-items-center text-lg font-poppinsFont bg-purple-700 focus:bg-purple-900 focus:ring-4 focus:ring-purple-300 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"}>
-                    Got it!
-                </Link>
+            <div
+                className={"flex justify-end"}>
+                <motion.div
+                    whileTap={{scale: 0.85}}>
+                    <Link to={"/guide2"}
+                          className={"w-24 h-12 mob3:w-32 mob3:h-20 mob3:text-2xl mr-5 mt-5 mob3:mt-14 mob3:pt-6 mob3:px-6 px-5 py-2.5 rounded-lg text-white font-semibold place-items-center text-lg font-poppinsFont bg-purple-700 focus:bg-purple-900 focus:ring-4 focus:ring-purple-300 mb-2 dark:bg-purple-600 dark:hover:bg-purple-700 dark:focus:ring-purple-900"}>
+                        Got it!
+                    </Link>
+                </motion.div>
                 <Outlet/>
             </div>
         </motion.div>

@@ -18,7 +18,7 @@ const AnimatedRoute = () => {
     useEffect(() => {
         let startTouchX: number = 0;
         let endTouchX: number = 0;
-        const threshold = 50; // minimum swipe distance in pixels
+        const threshold = 85; // minimum swipe distance in pixels
 
         const handleTouchStart = (event: TouchEvent) => {
             startTouchX = event.changedTouches[0].pageX;
