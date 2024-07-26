@@ -7,14 +7,15 @@ interface TasksCardProps {
     taskTitle: string;
     taskProfit: string;
     category:string;
+    openModal:()=>void;
 }
 
-const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit}) => {
+const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit, openModal}) => {
 
     const coinUrl = new URL("/imgs/coin.png", import.meta.url).href;
     const completed:boolean = true;
     return (
-        <div className="TasksCard flex columns-2 flex-row justify-center select-none">
+        <button onClick={openModal} className="TasksCard flex columns-2 flex-row justify-center select-none">
             <div
                 className="flex w-100 pl-3 items-center text-white font-poppinsFont text-left h-16 mob1:w-72 mob2:w-96 mob3:w-110 mob3:h-24 bg-bgNew rounded-l-xl mt-6">
                 <img
@@ -40,7 +41,7 @@ const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit}) => {
                     <MdArrowForwardIos className="ml-2" size="40px" color="gray"/>
                 </div>
             )}
-        </div>
+        </button>
     );
 };
 

@@ -1,6 +1,6 @@
 import PageBodyWrapper from "./PageBodyWrapper.tsx";
 import TasksBoard from "../cards/TasksBoard.tsx";
-import { motion } from "framer-motion";
+import {motion} from "framer-motion";
 
 const TasksPage = () => {
     return (
@@ -13,8 +13,6 @@ const TasksPage = () => {
         >
             <PageBodyWrapper>
                 <div className={"bg-main overflow-y-auto pb-24"}>
-                    <TasksBoard/>
-                    <TasksBoard/>
                     <TasksBoard/>
                 </div>
             </PageBodyWrapper>
