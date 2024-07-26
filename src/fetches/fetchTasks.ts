@@ -3,7 +3,7 @@ import {DOMAIN_ADDRESS} from "../config/constants.ts";
 
 export default async function fetchTasks(): Promise<ITaskApiResponse | undefined> {
 
-    // const init_data = "query_id=AAHJo655AgAAAMmjrnlnUJS5&user=%7B%22id%22%3A6336455625%2C%22first_name%22%3A%22John%22%2C%22last_name%22%3A%22Smollett%22%2C%22username%22%3A%22johnsmolett%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1722004600&hash=1fe6cc4dce8e434e6fa97f7ae98f07edad2c69d8e1e69f29298d25b9128f90ac\n";
+    // const init_data = "query_id=AAHJo655AgAAAMmjrnnTUmU6&user=%7B%22id%22%3A6336455625%2C%22first_name%22%3A%22John%22%2C%22last_name%22%3A%22Smollett%22%2C%22username%22%3A%22johnsmolett%22%2C%22language_code%22%3A%22en%22%2C%22allows_write_to_pm%22%3Atrue%7D&auth_date=1722007651&hash=88a828d67d7abf5ce709942bbc785e6e3908040ad9d638b4c1535f396c2a13a0";
 
     // Ensure Telegram WebApp is initialized
     const tg = window.Telegram.WebApp;
@@ -14,7 +14,7 @@ export default async function fetchTasks(): Promise<ITaskApiResponse | undefined
 
     // Fetch tasks with the proper Authorization header
     try {
-        const response = await fetch(`${DOMAIN_ADDRESS}/api/v1/tasks/`, {
+        const response = await fetch(`${DOMAIN_ADDRESS}api/v1/tasks/`, {
             headers: {
                 Authorization: tg.initData
             },
