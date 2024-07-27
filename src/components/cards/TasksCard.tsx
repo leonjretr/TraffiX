@@ -1,3 +1,4 @@
+import {motion} from "framer-motion";
 import {FC} from "react";
 import {FaCheck} from "react-icons/fa6";
 import {MdArrowForwardIos} from "react-icons/md";
@@ -6,18 +7,20 @@ interface TasksCardProps {
     avatar: string | undefined;
     taskTitle: string;
     taskProfit: string;
-    category:string;
-    openModal:()=>void;
+    category: string;
+    openModal: () => void;
 }
 
 const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit, openModal}) => {
 
     const coinUrl = new URL("/imgs/coin.png", import.meta.url).href;
-    const completed:boolean = true;
+    const completed: boolean = true;
     return (
-        <button onClick={openModal} className="TasksCard flex columns-2 flex-row justify-center select-none">
+        <motion.button whileTap={{scale: 0.92}}
+                       onClick={openModal}
+                       className="TasksCard flex columns-2 flex-row justify-center select-none">
             <div
-                className="flex w-100 pl-3 items-center text-white font-poppinsFont text-left h-16 mob1:w-72 mob2:w-96 mob3:w-110 mob3:h-24 bg-bgNew rounded-l-xl mt-6">
+                className="flex w-100 pl-3 items-center text-white font-poppinsFont text-left h-20 mob1:w-72 mob2:w-96 mob3:w-110 mob3:h-24 bg-bgNew rounded-l-xl mt-6">
                 <img
                     className="w-10 h-10 sm:h-14 sm:w-14 md:w-16 md:h-16 rounded-full"
                     id="taskAvatar"
@@ -33,15 +36,17 @@ const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit, openModal
                 </div>
             </div>
             {completed ? (
-                <div className="flex w-24 h-16 mob3:h-24 mt-6 rounded-r-xl bg-green-500 place-items-center mob1:pl-3 mob2:pl-5 mob3:pl-5">
+                <div
+                    className="flex w-24 h-20 mob3:h-24 mt-6 rounded-r-xl bg-green-500 place-items-center mob1:pl-3 mob2:pl-5 mob3:pl-5">
                     <FaCheck className="ml-2 mt-2" size="40px"/>
                 </div>
             ) : (
-                <div className="flex w-24 h-16 mob3:h-24 mt-6 rounded-r-xl bg-neutral-700 place-items-center mob1:pl-3 mob2:pl-5 mob3:pl-5">
+                <div
+                    className="flex w-24 h-20 mob3:h-24 mt-6 rounded-r-xl bg-neutral-700 place-items-center mob1:pl-3 mob2:pl-5 mob3:pl-5">
                     <MdArrowForwardIos className="ml-2" size="40px" color="gray"/>
                 </div>
             )}
-        </button>
+        </motion.button>
     );
 };
 
