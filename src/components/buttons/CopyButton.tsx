@@ -1,31 +1,33 @@
-import React,{useState} from 'react';
+import React, {useEffect, useState} from 'react';
+import {IReferralApiResponse} from "../types/types.tsx";
+import fetchReferrals from "../../fetches/fetchReferrals.ts";
 
 const CopyButton = () => {
 
     const [copySuccess, setCopySuccess] = useState('Copy');
     const [selectedOption, setSelectedOption] = useState('');
-    const textToCopy = 'traffixdev';
-    const textToCopy2 = 'traffix.com/ref/cy4ka';
-    const textToCopy3 = 'tr.com/itsme';
+    // const textToCopy = 'traffixdev';
+    // const textToCopy2 = 'traffix.com/ref/cy4ka';
+    // const textToCopy3 = 'tr.com/itsme';
 
-    // const [refData, setRefData] = useState<IReferralApiResponse | undefined>();
-    // useEffect(() => {
-    //     const fetchData = async () => {
-    //         try {
-    //             fetchReferrals().then((data) => setRefData(data));
-    //             // const data = await fetchTasks();
-    //             // setCardData(data);
-    //             // if (Array.isArray(data)) {
-    //             //
-    //             // } else {
-    //             //     console.error("Fetched data is not an array:", data);
-    //             // }
-    //         } catch (error) {
-    //             console.error("Error fetching tasks:", error);
-    //         }
-    //     };
-    //     fetchData();
-    // }, []);
+    const [refData, setRefData] = useState<IReferralApiResponse | undefined>();
+    useEffect(() => {
+        const fetchData = async () => {
+            try {
+                fetchReferrals().then((data) => setRefData(data));
+                // const data = await fetchTasks();
+                // setCardData(data);
+                // if (Array.isArray(data)) {
+                //
+                // } else {
+                //     console.error("Fetched data is not an array:", data);
+                // }
+            } catch (error) {
+                console.error("Error fetching tasks:", error);
+            }
+        };
+        fetchData();
+    }, []);
 
     const handleSelectChange = (event:React.ChangeEvent<HTMLSelectElement>) => {
         setSelectedOption(event.target.value);
@@ -53,9 +55,12 @@ const CopyButton = () => {
                         value={selectedOption}
                         onChange={handleSelectChange}
                         className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                    <option value={textToCopy}>{textToCopy}</option>
-                    <option value={textToCopy2}>{textToCopy2}</option>
-                    <option value={textToCopy3}>{textToCopy3}</option>
+                    {refData?.results.map((referral, index) =>
+                        <option key={index} value={referral.code}>{referral.code}</option>
+                    )}
+                    {/*<option value={textToCopy}>{textToCopy}</option>*/}
+                    {/*<option value={textToCopy2}>{textToCopy2}</option>*/}
+                    {/*<option value={textToCopy3}>{textToCopy3}</option>*/}
                 </select>
             </form>
             <button

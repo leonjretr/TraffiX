@@ -15,7 +15,7 @@ class userStore {
 
     fetchAllUsersStore() {
         runInAction(() => {
-            fetch(`${DOMAIN_ADDRESS}/api/v1/users/`, {
+            fetch(`${DOMAIN_ADDRESS}api/v1/users/`, {
                 headers: {Authorization: `${window.Telegram.WebApp.initData}`},
             })
                 .then(response => response.json())

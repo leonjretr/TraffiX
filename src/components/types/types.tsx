@@ -44,3 +44,15 @@ export interface IReferralApiResponse {
     previous: string | null;
     results: IReferral[];
 }
+
+export interface IFriends {
+    id:number;
+}
+
+export interface IFriendsApiResponse {
+    count: number;
+    next: string | null;
+    previous: string | null;
+    results: IFriends[];
+}
+
