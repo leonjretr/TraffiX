@@ -59,7 +59,7 @@ const TasksBoard = () => {
             </div>
             <ModalTasks showModal={isModalOpened} closeModal={closeModal}>
                 <motion.button
-                    whileTap={{scale: 0.9}}
+                    whileTap={{scale: 1.3}}
                     onClick={closeModal}
                     className="flex float-right -mt-5 -mr-2 pb-1 place-items-center text-black text-3xl font-sans font-medium">
                     &times;
