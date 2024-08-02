@@ -22,7 +22,7 @@ export interface ITasks {
     id: number;
     name: string;
     reward: string;
-    icon: string | undefined;
+    icon: string;
     category: string;
 }
 
@@ -46,7 +46,10 @@ export interface IReferralApiResponse {
 }
 
 export interface IFriends {
-    id:number;
+    friend:number;
+    username:string | null;
+    first_name:string;
+    last_name:string | null;
 }
 
 export interface IFriendsApiResponse {

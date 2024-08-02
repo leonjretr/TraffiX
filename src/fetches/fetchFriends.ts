@@ -10,7 +10,6 @@ export default async function fetchFriends(): Promise<IFriendsApiResponse | unde
                 Authorization: init_data
             },
         });
-
         if (!response.ok) {
             console.error(`Error fetching tasks: ${response.status} ${response.statusText}`);
             return;

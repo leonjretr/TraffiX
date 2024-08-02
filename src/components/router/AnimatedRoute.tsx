@@ -3,7 +3,7 @@ import FriendsPage from "../pages/FriendsPage.tsx";
 import TopPage from "../pages/TopPage.tsx";
 import ShopPage from "../pages/ShopPage.tsx";
 import {AnimatePresence} from "framer-motion";
-import {useEffect, useState} from "react";
+import {useEffect, useRef, useState} from "react";
 import WelcomingPage1 from "../pages/WelcomingPage1.tsx";
 import WelcomingPage2 from "../pages/WelcomingPage2.tsx";
 import WelcomingPage3 from "../pages/WelcomingPage3.tsx";
@@ -15,6 +15,7 @@ const AnimatedRoute = () => {
     const navigate = useNavigate();
     let location = useLocation();
     const [swiping, setSwiping] = useState<boolean>(false);
+    const touchInProgress = useRef<boolean>(false); // To keep track of ongoing touch
 
     useEffect(() => {
         let startTouchX: number = 0;
@@ -22,10 +23,14 @@ const AnimatedRoute = () => {
         const threshold = 85; // minimum swipe distance in pixels
 
         const handleTouchStart = (event: TouchEvent) => {
+            if (touchInProgress.current) return;
+            touchInProgress.current = true;
             startTouchX = event.changedTouches[0].pageX;
         };
 
         const handleTouchEnd = (event: TouchEvent) => {
+            if (!touchInProgress.current) return;
+            touchInProgress.current = false;
             endTouchX = event.changedTouches[0].pageX;
             const swipeDistance = endTouchX - startTouchX;
 

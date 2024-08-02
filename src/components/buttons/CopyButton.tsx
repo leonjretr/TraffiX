@@ -14,7 +14,13 @@ const CopyButton = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                fetchReferrals().then((data) => setRefData(data));
+                const data = await fetchReferrals();
+                setRefData(data);
+                if(data!=undefined){
+                    if(data.results.length>0){
+                        setSelectedOption(data.results[0].code)
+                    }
+                }
                 // const data = await fetchTasks();
                 // setCardData(data);
                 // if (Array.isArray(data)) {
@@ -58,9 +64,6 @@ const CopyButton = () => {
                     {refData?.results.map((referral, index) =>
                         <option key={index} value={referral.code}>{referral.code}</option>
                     )}
-                    {/*<option value={textToCopy}>{textToCopy}</option>*/}
-                    {/*<option value={textToCopy2}>{textToCopy2}</option>*/}
-                    {/*<option value={textToCopy3}>{textToCopy3}</option>*/}
                 </select>
             </form>
             <button
