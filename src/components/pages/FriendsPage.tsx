@@ -11,7 +11,9 @@ const FriendsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                fetchFriends().then((data) => setFriendsData(data));
+                const data = await fetchFriends();
+                setFriendsData(data);
+                // fetchFriends().then((data) => setFriendsData(data));
                 // const data = await fetchTasks();
                 // setCardData(data);
                 // if (Array.isArray(data)) {
@@ -25,6 +27,8 @@ const FriendsPage = () => {
         };
         fetchData();
     }, []);
+
+    console.log(friendsData);
 
     const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;
     return (
@@ -53,7 +57,7 @@ const FriendsPage = () => {
                     </h1>
                     {/*тут цикл*/}
                     {friendsData?.results.map((friend, index) =>
-                        <ReferralBoard key={index} friendId={friend.id}/>
+                        <ReferralBoard key={index} friendName={friend.first_name} friendId={friend.friend}/>
                     )}
 
                     {/*<div className={"flex flex-row columns-2"}>*/}

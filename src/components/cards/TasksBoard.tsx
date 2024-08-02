@@ -1,36 +1,62 @@
 import TasksCard from "../cards/TasksCard.tsx";
 import {useEffect, useState} from "react";
-import {ITaskApiResponse, ITasks} from "../types/types.tsx";
+import {ITasks} from "../types/types.tsx";
 import fetchTasks from "../../fetches/fetchTasks.ts";
 import {motion} from "framer-motion";
 import ModalTasks from "../modals/ModalTasks.tsx";
-
+import {TASKS_PER_PAGE} from "../../config/constants.ts";
+import InfiniteScroll from "react-infinite-scroll-component";
 
 const TasksBoard = () => {
+
+    const [allTasks, setAllTasks] = useState<ITasks[]>([]);
+    const [displayedTasks, setDisplayedTasks] = useState<ITasks[]>([]);
+    const [page, setPage] = useState(1);
+    const [hasMore, setHasMore] = useState(true);
+    const [loading, setLoading] = useState(false);
 
     const [selectedTask, setSelectedTask] = useState<ITasks | null>(null);
     const [isModalOpened, setIsModalOpened] = useState(false);
 
-    const [cardData, setCardData] = useState<ITaskApiResponse | undefined>();
+    // const [cardData, setCardData] = useState<ITaskApiResponse | undefined>();
     useEffect(() => {
         const fetchData = async () => {
             try {
-                fetchTasks().then((data) => setCardData(data));
-                // const data = await fetchTasks();
-                // setCardData(data);
-                // if (Array.isArray(data)) {
-                //
-                // } else {
-                //     console.error("Fetched data is not an array:", data);
-                // }
+                setLoading(true);
+                const data = await fetchTasks();
+                if (data?.results != undefined) {
+                    setAllTasks(data.results);
+                    setDisplayedTasks(data.results.slice(0, TASKS_PER_PAGE));
+                    setHasMore(data.results.length > TASKS_PER_PAGE);
+                }
+                setLoading(false);
             } catch (error) {
                 console.error("Error fetching tasks:", error);
+                setLoading(false);
             }
         };
         fetchData();
     }, []);
 
-    const openModal = (task:ITasks) => {
+    const fetchMoreData = () => {
+        setLoading(true);
+        const startIndex = page * TASKS_PER_PAGE;
+        const newTasks = allTasks.slice(startIndex, startIndex + TASKS_PER_PAGE);
+        // Ensure new tasks are actually fetched
+        if (newTasks.length === 0) {
+            setHasMore(false);
+            return;
+        }
+        setDisplayedTasks(prevTasks => [...prevTasks, ...newTasks]);
+        setPage(prevPage => prevPage + 1);
+        // Check if there are more tasks to load
+        if (startIndex + TASKS_PER_PAGE >= allTasks.length) {
+            setHasMore(false);
+        }
+        setLoading(false);
+    }
+
+    const openModal = (task: ITasks) => {
         setIsModalOpened(true);
         setSelectedTask(task);
     };
@@ -49,14 +75,21 @@ const TasksBoard = () => {
         <div className={"TaskBoard pb-5"}>
             <h1 className={"text-white text-2xl font-poppinsFont text-center mt-5 select-none"}>Your tasks</h1>
             <div className="flex flex-col columns-1 px-6">
-                {cardData?.results.map((card, index) =>
-                    <TasksCard openModal={() => openModal(card)}
-                               key={index} avatar={card.icon} taskTitle={card.name}
-                               taskProfit={card.reward}
-                               category={card.category}
-                    />
-                )}
+                <InfiniteScroll next={fetchMoreData} hasMore={hasMore}
+                                loader={<p className="text-center text-white text-base font-poppinsFont font-base mt-6">
+                                    loading...
+                                </p>}
+                                dataLength={displayedTasks.length}>
+                    {displayedTasks.map((task, index) =>
+                        <TasksCard openModal={() => openModal(task)}
+                                   key={index} avatar={task.icon} taskTitle={task.name}
+                                   taskProfit={task.reward}
+                                   category={task.category}
+                        />
+                    )}
+                </InfiniteScroll>
             </div>
+
             <ModalTasks showModal={isModalOpened} closeModal={closeModal}>
                 <motion.button
                     whileTap={{scale: 1.3}}
@@ -64,6 +97,7 @@ const TasksBoard = () => {
                     className="flex float-right -mt-5 -mr-2 pb-1 place-items-center text-black text-3xl font-sans font-medium">
                     &times;
                 </motion.button>
+
                 {selectedTask && (
                     <>
                         <h2 className="text-xl text-center text-black font-poppinsFont font-semibold mb-4">
@@ -77,6 +111,7 @@ const TasksBoard = () => {
                         </h2>
                     </>
                 )}
+
                 <motion.button
                     whileTap={{scale: 0.9}}
                     onClick={closeModal}
@@ -98,3 +133,12 @@ export default TasksBoard;
 //     {avatar: avatarUrl, taskTitle: "Show pussy", taskProfit: "300 GB", completed: false},
 //     {avatar: avatarUrl3, taskTitle: "Show ass", taskProfit: "300 MB", completed: true}
 // ]
+
+
+// const data = await fetchTasks();
+// setCardData(data);
+// if (Array.isArray(data)) {
+//
+// } else {
+//     console.error("Fetched data is not an array:", data);
+// }
