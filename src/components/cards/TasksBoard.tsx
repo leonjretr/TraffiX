@@ -17,7 +17,7 @@ const TasksBoard = () => {
 
     const [selectedTask, setSelectedTask] = useState<ITasks | null>(null);
     const [isModalOpened, setIsModalOpened] = useState(false);
-
+    console.log(loading);
     // const [cardData, setCardData] = useState<ITaskApiResponse | undefined>();
     useEffect(() => {
         const fetchData = async () => {
