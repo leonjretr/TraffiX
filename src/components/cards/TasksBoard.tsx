@@ -13,7 +13,7 @@ const TasksBoard = () => {
     const [displayedTasks, setDisplayedTasks] = useState<ITasks[]>([]);
     const [page, setPage] = useState(1);
     const [hasMore, setHasMore] = useState(true);
-    const [loading, setLoading] = useState(false);
+    const [loading, setLoading] = useState(true);
 
     const [selectedTask, setSelectedTask] = useState<ITasks | null>(null);
     const [isModalOpened, setIsModalOpened] = useState(false);
@@ -33,27 +33,24 @@ const TasksBoard = () => {
             } catch (error) {
                 console.error("Error fetching tasks:", error);
                 setLoading(false);
+            } finally {
+                setLoading(false);
             }
         };
         fetchData();
     }, []);
 
     const fetchMoreData = () => {
+        if (loading) return; // Prevent multiple fetches
         setLoading(true);
-        const startIndex = page * TASKS_PER_PAGE;
-        const newTasks = allTasks.slice(startIndex, startIndex + TASKS_PER_PAGE);
-        // Ensure new tasks are actually fetched
-        if (newTasks.length === 0) {
-            setHasMore(false);
-            return;
-        }
-        setDisplayedTasks(prevTasks => [...prevTasks, ...newTasks]);
-        setPage(prevPage => prevPage + 1);
-        // Check if there are more tasks to load
-        if (startIndex + TASKS_PER_PAGE >= allTasks.length) {
-            setHasMore(false);
-        }
-        setLoading(false);
+        setTimeout(() => {
+            const startIndex = page * TASKS_PER_PAGE;
+            const newTasks = allTasks.slice(startIndex, startIndex + TASKS_PER_PAGE);
+            setDisplayedTasks(prevTasks => [...prevTasks, ...newTasks]);
+            setPage(prevPage => prevPage + 1);
+            setHasMore(startIndex + TASKS_PER_PAGE < allTasks.length);
+            setLoading(false);
+        }, 500); // Simulate loading delay
     }
 
     const openModal = (task: ITasks) => {
@@ -76,9 +73,10 @@ const TasksBoard = () => {
             <h1 className={"text-white text-2xl font-poppinsFont text-center mt-5 select-none"}>Your tasks</h1>
             <div className="flex flex-col columns-1 px-6">
                 <InfiniteScroll next={fetchMoreData} hasMore={hasMore}
-                                loader={<p className="text-center text-white text-base font-poppinsFont font-base mt-6">
-                                    loading...
-                                </p>}
+                                loader={loading &&
+                                    <p className="text-center text-white text-base font-poppinsFont font-base mt-6">
+                                        loading...
+                                    </p>}
                                 dataLength={displayedTasks.length}>
                     {displayedTasks.map((task, index) =>
                         <TasksCard openModal={() => openModal(task)}

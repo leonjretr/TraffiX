@@ -8,9 +8,9 @@ interface ReferralBoardProps {
 const ReferralBoard: FC<ReferralBoardProps> = ({friendId}) => {
     const userUrl = new URL("/imgs/bradpitt.jpg", import.meta.url).href;
     return (
-        <div className={"select-none"}>
+        <div className={"select-none w-full space-x-5"}>
             <div
-                className={"flex w-full pl-3 items-center text-white font-poppinsFont text-left h-12 mob1:w-72 mob2:w-96 mob3:w-110 mob3:h-24 bg-bgNew rounded-xl mt-4"}>
+                className={"flex pl-3 items-center text-white font-poppinsFont text-left h-12 mob1:w-72 mob2:w-96 mob3:w-110 mob3:h-24 bg-bgNew rounded-xl mt-4"}>
                 {/*<h1 className={"font-poppinsFont text-sm text-white font-light mt-2"}>*/}
                 {/*    {friendName}*/}
                 {/*</h1>*/}
