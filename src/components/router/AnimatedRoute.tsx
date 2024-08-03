@@ -14,7 +14,6 @@ const AnimatedRoute = () => {
 
     const navigate = useNavigate();
     let location = useLocation();
-    //const [swiping, setSwiping] = useState<boolean>(false);
     const touchInProgress = useRef<boolean>(false); // To keep track of ongoing touch
 
     useEffect(() => {
