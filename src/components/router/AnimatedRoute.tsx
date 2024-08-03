@@ -3,7 +3,7 @@ import FriendsPage from "../pages/FriendsPage.tsx";
 import TopPage from "../pages/TopPage.tsx";
 import ShopPage from "../pages/ShopPage.tsx";
 import {AnimatePresence} from "framer-motion";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import WelcomingPage1 from "../pages/WelcomingPage1.tsx";
 import WelcomingPage2 from "../pages/WelcomingPage2.tsx";
 import WelcomingPage3 from "../pages/WelcomingPage3.tsx";
@@ -14,7 +14,6 @@ const AnimatedRoute = () => {
 
     const navigate = useNavigate();
     let location = useLocation();
-    const [swiping, setSwiping] = useState<boolean>(false);
     const touchInProgress = useRef<boolean>(false); // To keep track of ongoing touch
 
     useEffect(() => {
@@ -30,19 +29,19 @@ const AnimatedRoute = () => {
 
         const handleTouchEnd = (event: TouchEvent) => {
             if (!touchInProgress.current) return;
-            touchInProgress.current = false;
             endTouchX = event.changedTouches[0].pageX;
             const swipeDistance = endTouchX - startTouchX;
 
-            if (swipeDistance > threshold && !swiping) {
+            if (swipeDistance > threshold) {
                 handleSwipeRight();
-            } else if (swipeDistance < -threshold && !swiping) {
+            } else if (swipeDistance < -threshold) {
                 handleSwipeLeft();
             }
+            touchInProgress.current = false;
         };
 
         const handleSwipeRight = () => {
-            setSwiping(true);
+            //setSwiping(true);
             switch (location.pathname) {
                 case '/main':
                     navigate("/friends", {replace: true});
@@ -59,11 +58,11 @@ const AnimatedRoute = () => {
                     navigate("/top", {replace: true});
                     break;
             }
-            setTimeout(() => setSwiping(false), 100);
+            //setTimeout(() => setSwiping(false), 100);
         };
 
         const handleSwipeLeft = () => {
-            setSwiping(true);
+            //setSwiping(true);
             switch (location.pathname) {
                 case '/main':
                     navigate("/tasks", {replace: true});
@@ -80,7 +79,7 @@ const AnimatedRoute = () => {
                     navigate("/shop", {replace: true});
                     break;
             }
-            setTimeout(() => setSwiping(false), 300);
+            //setTimeout(() => setSwiping(false), 300);
         };
 
         document.addEventListener("touchstart", handleTouchStart);
