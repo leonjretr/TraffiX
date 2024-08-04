@@ -7,6 +7,7 @@ import {IFriends} from "../types/types.tsx";
 import fetchFriends from "../../fetches/fetchFriends.ts";
 import {FRIENDS_PER_PAGE} from "../../config/constants.ts";
 import InfiniteScroll from "react-infinite-scroll-component";
+import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
 const FriendsPage = () => {
     const [allFriends, setAllFriends] = useState<IFriends[]>([]);
@@ -50,9 +51,10 @@ const FriendsPage = () => {
     }
 
     console.log(allFriends);
-    console.log(displayedFriends.length)
-    
+
     const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;
+//    const loadingUrl = new URL("/imgs/loading.gif", import.meta.url).href;
+
     return (
         <OtherPagesWrapper>
             <motion.div
@@ -78,17 +80,12 @@ const FriendsPage = () => {
                         Your friends
                     </h1>
                     <InfiniteScroll next={fetchMoreData} hasMore={hasMore}
-                                    loader={loading &&
-                                        <p className="text-center text-white text-base font-poppinsFont font-base mt-6">
-                                            loading...
-                                        </p>}
+                                    loader={loading && <div className={"flex justify-center items-center mt-5"}><AiOutlineLoading3Quarters className={"text-white text-2xl"}/></div>}
                                     dataLength={displayedFriends.length}>
                         {displayedFriends.map((friend, index) =>
                             <ReferralBoard key={index} friendName={friend.first_name} friendId={friend.friend}/>
                         )}
                     </InfiniteScroll>
-
-
                     {/*<div className={"flex flex-row columns-2"}>*/}
                     {/*    <h1 className={"font-poppinsFont text-sm font-light mt-2"}>*/}
                     {/*        Mark Spencer*/}
@@ -113,3 +110,12 @@ export default FriendsPage;
 }
 {/*    it...</h1>*/
 }
+
+// <p className="text-center text-white text-base font-poppinsFont font-base mt-6">
+//     loading...
+// </p>
+
+// <img className={"bg-white w-10 h-10"}
+//      src={loadingUrl}
+//      alt={"Loading"}/>
+// }
