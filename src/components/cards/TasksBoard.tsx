@@ -6,6 +6,7 @@ import {motion} from "framer-motion";
 import ModalTasks from "../modals/ModalTasks.tsx";
 import {TASKS_PER_PAGE} from "../../config/constants.ts";
 import InfiniteScroll from "react-infinite-scroll-component";
+import LoadingScroll from "../animations/LoadingScroll.tsx";
 
 const TasksBoard = () => {
 
@@ -73,10 +74,7 @@ const TasksBoard = () => {
             <h1 className={"text-white text-2xl font-poppinsFont text-center mt-5 select-none"}>Your tasks</h1>
             <div className="flex flex-col columns-1 px-6">
                 <InfiniteScroll next={fetchMoreData} hasMore={hasMore}
-                                loader={loading &&
-                                    <p className="text-center text-white text-base font-poppinsFont font-base mt-6">
-                                        loading...
-                                    </p>}
+                                loader={loading && <LoadingScroll/>}
                                 dataLength={displayedTasks.length}>
                     {displayedTasks.map((task, index) =>
                         <TasksCard openModal={() => openModal(task)}
