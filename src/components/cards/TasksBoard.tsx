@@ -18,7 +18,7 @@ const TasksBoard = () => {
     const [selectedTask, setSelectedTask] = useState<ITasks | null>(null);
     const [isModalOpened, setIsModalOpened] = useState(false);
     console.log(loading);
-    // const [cardData, setCardData] = useState<ITaskApiResponse | undefined>();
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -101,9 +101,17 @@ const TasksBoard = () => {
                         <h2 className="text-xl text-center text-black font-poppinsFont font-semibold mb-4">
                             Task Description
                         </h2>
-                        <h2 className="text-base text-center text-gray-700 font-poppinsFont font-semibold mb-4">
+                        <h2 className="text-base text-center text-gray-800 font-poppinsFont font-semibold mb-2">
                             {selectedTask.name}
                         </h2>
+                        <div className={"flex justify-center items-center mb-4"}>
+                            <h2 className="text-base text-center text-gray-800 font-poppinsFont font-semibold">
+                                And get: &nbsp;
+                            </h2>
+                            <h2 className="text-lg text-center text-black font-poppinsFont font-bold">
+                                {selectedTask.reward} TR coins
+                            </h2>
+                        </div>
                         <h2 className="text-sm text-center text-gray-500 font-poppinsFont font-semibold mb-4">
                             Do you want to start this task?
                         </h2>
