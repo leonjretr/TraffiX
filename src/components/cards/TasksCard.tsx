@@ -41,12 +41,12 @@ const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit, openModal
             </div>
             {completed ? (
                 <div
-                    className="flex w-16 h-20 mob3:h-24 mt-6 rounded-r-xl bg-green-500 place-items-center mob1:pl-3 mob2:pl-5 mob3:pl-5">
-                    <FaCheck className="ml-2 mt-2" size="40px"/>
+                    className="flex w-16 h-20 mob3:h-24 mt-6 rounded-r-xl bg-green-500 items-center pl-1">
+                    <FaCheck className="ml-2 mt-2" size="40px" />
                 </div>
             ) : (
                 <div
-                    className="flex w-24 h-20 mob3:h-24 mt-6 rounded-r-xl bg-neutral-700 place-items-center mob1:pl-3 mob2:pl-5 mob3:pl-5">
+                    className="flex w-24 h-20 mob3:h-24 mt-6 rounded-r-xl bg-neutral-700 place-items-center pl-1">
                     <MdArrowForwardIos className="ml-2" size="40px" color="gray"/>
                 </div>
             )}

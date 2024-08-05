@@ -8,8 +8,14 @@ import fetchFriends from "../../fetches/fetchFriends.ts";
 import {FRIENDS_PER_PAGE} from "../../config/constants.ts";
 import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingScroll from "../animations/LoadingScroll.tsx";
+import ModalAddFriend from "../modals/ModalAddFriend.tsx";
+import AddFriendButton from "../buttons/AddFriendButton.tsx";
 
 const FriendsPage = () => {
+    const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;
+
+    const [isModalOpened, setIsModalOpened] = useState(false);
+
     const [allFriends, setAllFriends] = useState<IFriends[]>([]);
     const [displayedFriends, setDisplayedFriends] = useState<IFriends[]>([]);
     const [page, setPage] = useState(1);
@@ -52,7 +58,20 @@ const FriendsPage = () => {
 
     console.log(allFriends);
 
-    const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;
+    const openModal = () => {
+        setIsModalOpened(true);
+    };
+    const closeModal = () => {
+        setIsModalOpened(false);
+    };
+    useEffect(() => {
+        if (isModalOpened) {
+            document.body.classList.add('overflow-hidden');
+        } else {
+            document.body.classList.remove('overflow-hidden');
+        }
+    }, [isModalOpened]);
+
 
     return (
         <OtherPagesWrapper>
@@ -75,9 +94,15 @@ const FriendsPage = () => {
                     <CopyButton/>
                 </div>
                 <div className={"flex flex-col justify-center text-white m-5"}>
-                    <h1 className={"font-poppinsFont font-medium"}>
-                        Your friends
-                    </h1>
+                    <div className={"flex flex-row items-center gap-2"}>
+                        <h1 className={"font-poppinsFont font-medium"}>
+                            Your friends
+                        </h1>
+                        <div className={"w-fit"}>
+                            <AddFriendButton openModal={openModal}/>
+                        </div>
+                    </div>
+
                     <InfiniteScroll next={fetchMoreData} hasMore={hasMore}
                                     loader={loading && <div className={"flex justify-center"}><LoadingScroll/></div>}
                                     dataLength={displayedFriends.length}>
@@ -97,6 +122,35 @@ const FriendsPage = () => {
                     {/*    </h1>*/}
                     {/*</div>*/}
                 </div>
+
+                <ModalAddFriend showModal={isModalOpened} closeModal={closeModal}>
+                    <motion.button
+                        whileTap={{scale: 1.3}}
+                        onClick={closeModal}
+                        className="flex float-right -mt-5 -mr-2 pb-1 place-items-center text-black text-3xl font-sans font-medium">
+                        &times;
+                    </motion.button>
+                    <h2 className="text-xl text-center text-black font-poppinsFont font-semibold mb-3">
+                        Add a friend
+                    </h2>
+                    <h2 className="text-sm text-center text-black font-poppinsFont font-semibold mb-1">
+                        You can easily add friends by entering their ID and get a reward of 1000TR!
+                    </h2>
+                    <div className="mb-5">
+                        <label htmlFor="large-input"
+                               className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">
+                            Enter your friend's ID
+                        </label>
+                        <input type="text" id="large-input"
+                               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-3"/>
+                    </div>
+                    <motion.button
+                        whileTap={{scale: 0.9}}
+                        onClick={closeModal}
+                        className="w-auto px-4 py-2 bg-gray-400 text-white text-center rounded-md hover:bg-gray-500 active:ring active:ring-gray-400 font-sans font-medium">
+                        Add
+                    </motion.button>
+                </ModalAddFriend>
             </motion.div>
         </OtherPagesWrapper>
     );
