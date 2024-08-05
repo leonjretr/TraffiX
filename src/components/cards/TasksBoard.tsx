@@ -74,7 +74,7 @@ const TasksBoard = () => {
             <h1 className={"text-white text-2xl font-poppinsFont text-center mt-5 select-none"}>Your tasks</h1>
             <div className="flex flex-col columns-1 px-6">
                 <InfiniteScroll next={fetchMoreData} hasMore={hasMore}
-                                loader={loading && <LoadingScroll/>}
+                                loader={loading && <div className={"flex justify-center"}><LoadingScroll/></div>}
                                 dataLength={displayedTasks.length}>
                     {displayedTasks.map((task, index) =>
                         <TasksCard openModal={() => openModal(task)}
@@ -119,7 +119,7 @@ const TasksBoard = () => {
                 <motion.button
                     whileTap={{scale: 0.9}}
                     onClick={closeModal}
-                    className="w-auto px-4 py-2 bg-green-500 text-white text-center rounded-md hover:bg-green-600 active:ring active:ring-gray-400 font-sans font-medium">
+                    className="w-auto px-4 py-2 bg-gray-400 text-white text-center rounded-md hover:bg-gray-500 active:ring active:ring-gray-400 font-sans font-medium">
                     Start the task!
                 </motion.button>
             </ModalTasks>

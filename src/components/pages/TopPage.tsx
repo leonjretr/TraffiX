@@ -12,8 +12,6 @@ const TopPage = () => {
             transition={{duration: 0.2}}>
 
             <OtherPagesWrapper>
-                {/*<h1 className={"text-white text-5xl font-niceFontSec text-center m-10 select-none"}>Working on*/}
-                {/*    it...</h1>*/}
                 <LockedContent/>
             </OtherPagesWrapper>
         </motion.div>
