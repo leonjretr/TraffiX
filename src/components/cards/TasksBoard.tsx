@@ -74,7 +74,7 @@ const TasksBoard = () => {
             <h1 className={"text-white text-2xl font-poppinsFont text-center mt-5 select-none"}>Your tasks</h1>
             <div className="flex flex-col columns-1 px-6">
                 <InfiniteScroll next={fetchMoreData} hasMore={hasMore}
-                                loader={loading && <LoadingScroll/>}
+                                loader={loading && <div className={"flex justify-center"}><LoadingScroll/></div>}
                                 dataLength={displayedTasks.length}>
                     {displayedTasks.map((task, index) =>
                         <TasksCard openModal={() => openModal(task)}

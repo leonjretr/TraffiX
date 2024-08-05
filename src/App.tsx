@@ -13,7 +13,7 @@ const App = observer(() => {
     userStore.userAuthorization();
 
     return (
-        <div className="App bg-bgNew min-h-screen">
+        <div className="App bg-bgNewShade min-h-screen">
             <Router>
                 <AnimatedRoute/>
             </Router>

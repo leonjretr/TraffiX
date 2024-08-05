@@ -47,7 +47,7 @@ const FriendsPage = () => {
             setPage(prevPage => prevPage + 1);
             setHasMore(startIndex + FRIENDS_PER_PAGE < allFriends.length);
             setLoading(false);
-        }, 500); // Simulate loading delay
+        }, 1000); // Simulate loading delay
     }
 
     console.log(allFriends);
@@ -79,7 +79,7 @@ const FriendsPage = () => {
                         Your friends
                     </h1>
                     <InfiniteScroll next={fetchMoreData} hasMore={hasMore}
-                                    loader={loading && <LoadingScroll/>}
+                                    loader={loading && <div className={"flex justify-center"}><LoadingScroll/></div>}
                                     dataLength={displayedFriends.length}>
                         {displayedFriends.map((friend, index) =>
                             <ReferralBoard key={index} friendName={friend.first_name} friendId={friend.friend}/>
