@@ -21,23 +21,30 @@ const AnimatedRoute = observer(() => {
     useEffect(() => {
         let startTouchX: number = 0;
         let endTouchX: number = 0;
-        const threshold = 85; // minimum swipe distance in pixels
+        let startTouchY: number = 0;
+        let endTouchY: number = 0;
+        const thresholdX = 85; // minimum X swipe distance in pixels
+        const thresholdY = 35;
 
         const handleTouchStart = (event: TouchEvent) => {
             if (touchInProgress.current) return;
             touchInProgress.current = true;
             startTouchX = event.changedTouches[0].pageX;
+            startTouchY = event.changedTouches[0].pageY;
         };
 
         const handleTouchEnd = (event: TouchEvent) => {
             if (!touchInProgress.current) return;
             endTouchX = event.changedTouches[0].pageX;
-            const swipeDistance = endTouchX - startTouchX;
+            endTouchY = event.changedTouches[0].pageY;
+            const swipeDistanceX = endTouchX - startTouchX;
+            const swipeDistanceY = Math.abs(endTouchY - startTouchY); // Math abs чтобы значение всегда было положительным
 
-            if (swipeDistance > threshold && !routerStore.isNavigating) {
-                handleSwipeRight();
-            } else if (swipeDistance < -threshold && !routerStore.isNavigating) {
-                handleSwipeLeft();
+            if (startTouchX < 100 && swipeDistanceY < thresholdY && swipeDistanceX > thresholdX && !routerStore.isNavigating) {
+                handleSwipeRight(); // 100 - максимальное значение X при котором регистрируется startTouch при свайпе вправо
+            }
+            if (startTouchX > 350 && swipeDistanceY < thresholdY && swipeDistanceX < -thresholdX && !routerStore.isNavigating) {
+                handleSwipeLeft(); // 350 - максимальное значение X при котором регистрируется startTouch при свайпе влево
             }
             touchInProgress.current = false;
         };
