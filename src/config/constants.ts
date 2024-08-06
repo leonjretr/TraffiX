@@ -3,4 +3,4 @@ export const DOMAIN_ADDRESS ="https://traffix-api.onrender.com/";
 
 export const TASKS_PER_PAGE = 5;
 
-export const FRIENDS_PER_PAGE = 2;
+export const FRIENDS_PER_PAGE = 3;
