@@ -19,7 +19,7 @@ const FooterButtonsNew: FC<FooterButtonsNewProps> = ({routingPath, label, icon})
             navigate(routingPath);
             setTimeout(() => {
                 routerStore.setNavigatingFalse();
-            }, 400);
+            }, 800);
         }
     };
 
