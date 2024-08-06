@@ -54,22 +54,22 @@ const AnimatedRoute = observer(() => {
             switch (location.pathname) {
                 case '/main':
                     navigate("/friends", {replace: true});
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
                 case '/tasks':
                     navigate("/main", {replace: true});
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
                 case '/shop':
                     navigate("/tasks", {replace: true});
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
                 case '/top':
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
                 case '/friends':
                     navigate("/top", {replace: true});
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
             }
         };
@@ -79,22 +79,22 @@ const AnimatedRoute = observer(() => {
             switch (location.pathname) {
                 case '/main':
                     navigate("/tasks", {replace: true});
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
                 case '/friends':
                     navigate("/main", {replace: true});
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
                 case '/top':
                     navigate("/friends", {replace: true});
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
                 case '/shop':
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
                 case '/tasks':
                     navigate("/shop", {replace: true});
-                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 800);
                     break;
             }
         };
