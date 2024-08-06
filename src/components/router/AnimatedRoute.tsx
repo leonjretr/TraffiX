@@ -3,18 +3,19 @@ import FriendsPage from "../pages/FriendsPage.tsx";
 import TopPage from "../pages/TopPage.tsx";
 import ShopPage from "../pages/ShopPage.tsx";
 import {AnimatePresence} from "framer-motion";
-import {useEffect, useRef, useState} from "react";
+import {useEffect, useRef} from "react";
 import WelcomingPage1 from "../pages/WelcomingPage1.tsx";
 import WelcomingPage2 from "../pages/WelcomingPage2.tsx";
 import WelcomingPage3 from "../pages/WelcomingPage3.tsx";
 import MainPageNew from "../pages/MainPageNew.tsx";
 import TasksPageNew from "../pages/TasksPageNew.tsx";
+import {observer} from "mobx-react-lite";
+import routerStore from "../../stores/routerStore.ts";
 
-const AnimatedRoute = () => {
+const AnimatedRoute = observer(() => {
 
     const navigate = useNavigate();
     let location = useLocation();
-    const [swiping, setSwiping] = useState<boolean>(false);
     const touchInProgress = useRef<boolean>(false); // To keep track of ongoing touch
 
     useEffect(() => {
@@ -33,60 +34,60 @@ const AnimatedRoute = () => {
             endTouchX = event.changedTouches[0].pageX;
             const swipeDistance = endTouchX - startTouchX;
 
-            if (swipeDistance > threshold && !swiping) {
+            if (swipeDistance > threshold && !routerStore.isNavigating) {
                 handleSwipeRight();
-            } else if (swipeDistance < -threshold && !swiping) {
+            } else if (swipeDistance < -threshold && !routerStore.isNavigating) {
                 handleSwipeLeft();
             }
             touchInProgress.current = false;
         };
 
         const handleSwipeRight = () => {
-            setSwiping(true);
+            routerStore.setNavigatingTrue();
             switch (location.pathname) {
                 case '/main':
                     navigate("/friends", {replace: true});
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
                 case '/tasks':
                     navigate("/main", {replace: true});
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
                 case '/shop':
                     navigate("/tasks", {replace: true});
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
                 case '/top':
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
                 case '/friends':
                     navigate("/top", {replace: true});
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
             }
         };
 
         const handleSwipeLeft = () => {
-            setSwiping(true);
+            routerStore.setNavigatingTrue();
             switch (location.pathname) {
                 case '/main':
                     navigate("/tasks", {replace: true});
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
                 case '/friends':
                     navigate("/main", {replace: true});
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
                 case '/top':
                     navigate("/friends", {replace: true});
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
                 case '/shop':
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
                 case '/tasks':
                     navigate("/shop", {replace: true});
-                    setTimeout(() => setSwiping(false), 300);
+                    setTimeout(() => routerStore.setNavigatingFalse(), 400);
                     break;
             }
         };
@@ -114,6 +115,6 @@ const AnimatedRoute = () => {
             </Routes>
         </AnimatePresence>
     );
-};
+});
 
 export default AnimatedRoute;

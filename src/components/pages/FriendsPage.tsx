@@ -56,8 +56,6 @@ const FriendsPage = () => {
         }, 1000); // Simulate loading delay
     }
 
-    console.log(allFriends);
-
     const openModal = () => {
         setIsModalOpened(true);
     };
