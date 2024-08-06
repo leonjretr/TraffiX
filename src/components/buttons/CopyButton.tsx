@@ -6,9 +6,6 @@ const CopyButton = () => {
 
     const [copySuccess, setCopySuccess] = useState('Copy');
     const [selectedOption, setSelectedOption] = useState('');
-    // const textToCopy = 'traffixdev';
-    // const textToCopy2 = 'traffix.com/ref/cy4ka';
-    // const textToCopy3 = 'tr.com/itsme';
 
     const [refData, setRefData] = useState<IReferralApiResponse | undefined>();
     useEffect(() => {
@@ -21,13 +18,6 @@ const CopyButton = () => {
                         setSelectedOption(data.results[0].code)
                     }
                 }
-                // const data = await fetchTasks();
-                // setCardData(data);
-                // if (Array.isArray(data)) {
-                //
-                // } else {
-                //     console.error("Fetched data is not an array:", data);
-                // }
             } catch (error) {
                 console.error("Error fetching tasks:", error);
             }

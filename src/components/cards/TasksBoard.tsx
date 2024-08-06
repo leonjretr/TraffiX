@@ -18,7 +18,6 @@ const TasksBoard = () => {
 
     const [selectedTask, setSelectedTask] = useState<ITasks | null>(null);
     const [isModalOpened, setIsModalOpened] = useState(false);
-    console.log(loading);
 
     useEffect(() => {
         const fetchData = async () => {
