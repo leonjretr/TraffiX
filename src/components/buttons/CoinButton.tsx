@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import React, {FC, useEffect, useState} from "react";
+import {FC, useEffect, useState} from "react";
 import {observer} from "mobx-react-lite";
 import userStore from "../../stores/userStore.ts";
 
@@ -12,31 +12,50 @@ const CoinButton: FC<CoinButtonProps> = observer(() => {
     const Imgs = {
         coinImg: new URL("/imgs/coin.png", import.meta.url).href,
     };
-    const [touches, setTouches] = useState<Array<{id: number, x: number, y: number}>>([]);
+    const [positionX, setPositionX] = useState<number>(0);
+    const [positionY, setPositionY] = useState<number>(0);
+    const [isVisible, setIsVisible] = useState(false);
+    // let profitptap = profitphour / 1200;
 
-    const handleTouchStart = (event: React.TouchEvent<HTMLButtonElement>) => {
-        const newTouches = Array.from(event.changedTouches).map(touch => ({
-            id: touch.identifier,
-            x: touch.pageX,
-            y: touch.pageY,
-        }));
-        setTouches(prevTouches => [...prevTouches, ...newTouches]);
+    let startTouchX: number = 0;
+    let startTouchY: number = 0;
+
+    const handleClickAnimation = () => {
+        const clickbutton = document.getElementById("coinbutton");
+
+        if (clickbutton) {
+            clickbutton.addEventListener("touchstart", (event) => {
+                startTouchX = event.changedTouches[0].pageX;
+                startTouchY = event.changedTouches[0].pageY;
+                setPositionX(startTouchX);
+                setPositionY(startTouchY);
+                setIsVisible(true);
+            })
+        }
+    }
+
+    const handleBalanceIncrease = () => {
         userStore.tapBalance();
-    };
+    }
+
+    const handleClick = () => {
+        handleClickAnimation();
+        handleBalanceIncrease();
+    }
 
     useEffect(() => {
-        if (touches.length > 0) {
+        if (isVisible) {
             const timer = setTimeout(() => {
-                setTouches([]);
-            }, 250); // Hide after 0.3 seconds
+                setIsVisible(false);
+            }, 300); // Hide after 2 seconds
             return () => clearTimeout(timer); // Cleanup the timer
         }
-    }, [touches]);
+    }, [isVisible]);
 
     return (
         <div className={"MainPageTapCoin"}>
             <div className={"flex justify-center"}>
-                <div className={"relative inline-block mt-4 mob1:mt-8 mob2:mt-14"}>
+                <div className={"relative inline-block mt-2 mob1:mt-5 mob2:mt-12"}>
                     <motion.div
                         whileTap={{scale: 0.92}}
                         className={"rounded-full"}>
@@ -46,35 +65,34 @@ const CoinButton: FC<CoinButtonProps> = observer(() => {
                         <button
                             id={"coinbutton"}
                             className={"absolute rounded-full inset-0 justify-center w-64 h-64 mob1:w-80 mob1:h-80 mob2:w-90 mob2:h-90 mx-auto bg-transparent"}
-                            onTouchStart={handleTouchStart}>
+                            onClick={handleClick}>
                         </button>
                     </motion.div>
 
-                    {touches.map((touch) => (
+                    {isVisible && (
                         <motion.div
-                            key={touch.id}
                             initial={{
                                 opacity: 0,
-                                x: `${touch.x * 0.05}px`,
-                                y: `${touch.y * 0.05}px`
+                                x: `${positionX * 0.05}px`,
+                                y: `${positionY * 0.05}px`
                             }}
                             animate={{
-                                opacity: 1,
-                                x: `${touch.x * 0.05}px`,
-                                y: `${touch.y * 0.05 - 200}px`
+                                opacity: 3,
+                                x: `${positionX * 0.05}px`,
+                                y: `${positionY * 0.05 - 200}px`
                             }}
                             exit={{
                                 opacity: 0,
-                                x: `${touch.x * 0.05}px`,
-                                y: `${touch.y * 0.05}px`
+                                x: `${positionX * 0.05}px`,
+                                y: `${positionY * 0.05}px`
                             }}
                             transition={{duration: 0.1}}
                             className="profit-per-tap bg-transparent text-white text-4xl font-bold font-poppinsFont select-none"
-                            style={{top: `${touch.y * 0.5}px`, left: `${touch.x * 0.5}px`, position: 'absolute'}}
+                            style={{top: `${positionY * 0.5}px`, left: `${positionX * 0.5}px`, position: 'absolute'}}
                         >
                             +1
                         </motion.div>
-                    ))}
+                    )}
                 </div>
             </div>
         </div>
