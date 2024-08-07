@@ -5,7 +5,7 @@ const LockedContent = () => {
     const controls = useAnimation();
 
     const handleTap = async () => {
-        await controls.start({ rotateZ: [0, -20, 20, -20, 20, -20, 20, 0] });
+        await controls.start({rotateZ: [0, -20, 20, -20, 20, -20, 20, 0]});
     }
 
     return (
