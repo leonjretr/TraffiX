@@ -6,7 +6,7 @@ const MainPageNew = () => {
     return (
         <MainPageWrapper>
             <motion.div
-                className={"MainPage bg-bgNewShade min-h-screen overflow-y-auto select-none"}
+                className={"MainPage bg-bgNewShade h-full select-none"}
                 initial={{opacity: 0}}
                 animate={{opacity: 3}}
                 exit={{opacity: 0}}
