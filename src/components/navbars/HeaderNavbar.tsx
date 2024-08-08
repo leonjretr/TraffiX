@@ -24,11 +24,7 @@ const HeaderNavbar = () => {
     }, [isModalOpen]);
 
     return (
-        <motion.div className="flex space-x-2"
-                    initial={{opacity: 0}}
-                    animate={{opacity: 5}}
-                    exit={{opacity: 0}}
-                    transition={{duration: 0.5}}>
+        <motion.div className="flex space-x-2">
             <motion.button
                 whileTap={{scale: 1.3}}
                 onClick={openModal}

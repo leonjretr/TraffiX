@@ -10,6 +10,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingScroll from "../animations/LoadingScroll.tsx";
 import ModalAddFriend from "../modals/ModalAddFriend.tsx";
 import AddFriendButton from "../buttons/AddFriendButton.tsx";
+import {fadeIn} from "../animations/PageTransitions.ts";
 
 const FriendsPage = () => {
     const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;
@@ -75,10 +76,10 @@ const FriendsPage = () => {
         <OtherPagesWrapper>
             <motion.div
                 className={"TopPage bg-bgNewShade min-h-screen overflow-y-auto select-none pb-24"}
-                initial={{opacity: 0}}
-                animate={{opacity: 2}}
-                exit={{opacity: 0}}
-                transition={{duration: 0.2}}
+                initial={fadeIn.initial}
+                animate={fadeIn.animate}
+                exit={fadeIn.exit}
+                transition={fadeIn.transition}
             >
                 <div className="flex flex-col items-center justify-center overflow-y-auto">
                     <img src={friendsUrl} alt={"Referral"}
@@ -108,17 +109,6 @@ const FriendsPage = () => {
                             <ReferralBoard key={index} friendName={friend.first_name} friendId={friend.friend}/>
                         )}
                     </InfiniteScroll>
-                    {/*<div className={"flex flex-row columns-2"}>*/}
-                    {/*    <h1 className={"font-poppinsFont text-sm font-light mt-2"}>*/}
-                    {/*        Mark Spencer*/}
-                    {/*        <p className={"font-poppinsFont text-xs font-extralight"}>*/}
-                    {/*            11 Aug*/}
-                    {/*        </p>*/}
-                    {/*    </h1>*/}
-                    {/*    <h1 className={"flex pl-44 font-poppinsFont text-lg font-bold mt-4"}>*/}
-                    {/*        $20*/}
-                    {/*    </h1>*/}
-                    {/*</div>*/}
                 </div>
 
                 <ModalAddFriend showModal={isModalOpened} closeModal={closeModal}>

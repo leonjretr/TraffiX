@@ -7,7 +7,7 @@ interface PageWrapperNewProperties {
     children: React.ReactNode;
 }
 
-const MainPageWrapper: FC<PageWrapperNewProperties> = ({ children }) => {
+const OtherPagesWrapper: FC<PageWrapperNewProperties> = ({ children }) => {
     return (
         <div>
             <HeaderOtherNew />
@@ -17,4 +17,4 @@ const MainPageWrapper: FC<PageWrapperNewProperties> = ({ children }) => {
     );
 };
 
-export default MainPageWrapper;
+export default OtherPagesWrapper;
