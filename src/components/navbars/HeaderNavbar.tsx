@@ -2,7 +2,7 @@ import {motion} from "framer-motion";
 import {IoIosWallet, IoMdSettings} from "react-icons/io";
 import ModalUnavailable from "../modals/ModalUnavailable.tsx";
 import {useEffect, useState} from "react";
-import {cubeRotation} from "../animations/PageTransition.ts"
+import {fadeIn} from "../animations/PageTransition.ts"
 
 const HeaderNavbar = () => {
 
@@ -26,10 +26,10 @@ const HeaderNavbar = () => {
 
     return (
         <motion.div className="flex space-x-2"
-                    initial={cubeRotation.initial}
-                    animate={cubeRotation.animate}
-                    exit={cubeRotation.exit}
-                    transition={cubeRotation.transition}>
+                    initial={fadeIn.initial}
+                    animate={fadeIn.animate}
+                    exit={fadeIn.exit}
+                    transition={fadeIn.transition}>
             <motion.button
                 whileTap={{scale: 1.3}}
                 onClick={openModal}
