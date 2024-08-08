@@ -9,6 +9,7 @@ const HeaderMainNew = () => {
     const stats: IStats = {balance: 0, profitphour: 0};
 
     const tg = window.Telegram.WebApp;
+    console.log(tg.initData);
     const userok = tg.initDataUnsafe?.user;
 
     return (
