@@ -10,6 +10,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingScroll from "../animations/LoadingScroll.tsx";
 import ModalAddFriend from "../modals/ModalAddFriend.tsx";
 import AddFriendButton from "../buttons/AddFriendButton.tsx";
+import {cubeRotation} from "../animations/PageTransition.ts"
 
 const FriendsPage = () => {
     const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;
@@ -75,10 +76,10 @@ const FriendsPage = () => {
         <OtherPagesWrapper>
             <motion.div
                 className={"TopPage bg-bgNewShade min-h-screen overflow-y-auto select-none pb-24"}
-                initial={{opacity: 0}}
-                animate={{opacity: 2}}
-                exit={{opacity: 0}}
-                transition={{duration: 0.2}}
+                initial={cubeRotation.initial}
+                animate={cubeRotation.animate}
+                exit={cubeRotation.exit}
+                transition={cubeRotation.transition}
             >
                 <div className="flex flex-col items-center justify-center overflow-y-auto">
                     <img src={friendsUrl} alt={"Referral"}
