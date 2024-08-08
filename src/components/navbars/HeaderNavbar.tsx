@@ -2,7 +2,6 @@ import {motion} from "framer-motion";
 import {IoIosWallet, IoMdSettings} from "react-icons/io";
 import ModalUnavailable from "../modals/ModalUnavailable.tsx";
 import {useEffect, useState} from "react";
-import {fadeIn} from "../animations/PageTransition.ts"
 
 const HeaderNavbar = () => {
 
