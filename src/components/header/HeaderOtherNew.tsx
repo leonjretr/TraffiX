@@ -1,6 +1,5 @@
 import { motion } from "framer-motion";
 import HeaderNavbar from "../navbars/HeaderNavbar.tsx";
-import {fadeIn} from "../animations/PageTransition.ts"
 
 const Header = () => {
     const avatarUrl = new URL("/imgs/bradpitt.jpg", import.meta.url).href;
