@@ -1,16 +1,16 @@
 import {motion} from "framer-motion";
 import OtherPagesWrapper from "./OtherPagesWrapper.tsx";
 import LockedContent from "./LockedContent.tsx";
-import {cubeRotation} from "../animations/PageTransition.ts"
+import {fadeIn} from "../animations/PageTransition.ts"
 
 const TopPage = () => {
     return (
         <motion.div
             className={"TopPage bg-bgNewShade min-h-screen select-none pb-24"}
-            initial={cubeRotation.initial}
-            animate={cubeRotation.animate}
-            exit={cubeRotation.exit}
-            transition={cubeRotation.transition}>
+            initial={fadeIn.initial}
+            animate={fadeIn.animate}
+            exit={fadeIn.exit}
+            transition={fadeIn.transition}>
 
             <OtherPagesWrapper>
                 <LockedContent/>

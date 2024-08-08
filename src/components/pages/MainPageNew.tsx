@@ -1,17 +1,17 @@
 import {motion} from "framer-motion"
 import MainPageWrapper from "./MainPageWrapper.tsx";
 import CoinButton from "../buttons/CoinButton.tsx";
-import {cubeRotation} from "../animations/PageTransition.ts";
+import {fadeIn} from "../animations/PageTransition.ts";
 
 const MainPageNew = () => {
     return (
         <MainPageWrapper>
             <motion.div
                 className={"MainPage bg-bgNewShade h-full select-none"}
-                initial={cubeRotation.initial}
-                animate={cubeRotation.animate}
-                exit={cubeRotation.exit}
-                transition={cubeRotation.transition}
+                initial={fadeIn.initial}
+                animate={fadeIn.animate}
+                exit={fadeIn.exit}
+                transition={fadeIn.transition}
             >
                 <CoinButton profitphour={1200}/>
                 <div className="flex justify-center text-white font-poppinsFont font-semibold mt-1 mob1:mt-3 mob2:mt-5 items-end gap-2">

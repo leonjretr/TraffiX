@@ -2,7 +2,7 @@ import {motion} from "framer-motion";
 import HeaderNavbar from "../navbars/HeaderNavbar.tsx";
 import StatBoardNew from "../cards/StatBoardNew.tsx";
 import {IStats} from "../types/types.tsx";
-import {cubeRotation} from "../animations/PageTransition.ts"
+import {fadeIn} from "../animations/PageTransition.ts"
 
 const HeaderMainNew = () => {
     const avatarUrl = new URL("/imgs/bradpitt.jpg", import.meta.url).href;
@@ -14,10 +14,10 @@ const HeaderMainNew = () => {
     return (
         <motion.div
             className="bg-greenNew top-0 p-4 rounded-br-3xl rounded-bl-3xl w-auto h-60 mob1:h-64 mob2:h-72 mob3:h-80 select-none"
-            initial={cubeRotation.initial}
-            animate={cubeRotation.animate}
-            exit={cubeRotation.exit}
-            transition={cubeRotation.transition}>
+            initial={fadeIn.initial}
+            animate={fadeIn.animate}
+            exit={fadeIn.exit}
+            transition={fadeIn.transition}>
             <div className={"flex justify-between"}>
                 <div className="flex mt-3 sm:ml-2 md:ml-3">
                     <img
