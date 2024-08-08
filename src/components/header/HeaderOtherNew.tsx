@@ -11,10 +11,7 @@ const Header = () => {
     return (
             <motion.div
                 className="flex items-center top-0 justify-between bg-greenNew p-4 rounded-br-3xl rounded-bl-3xl w-auto h-24 sm:h-28 md:h-32 select-none"
-                initial={fadeIn.initial}
-                animate={fadeIn.animate}
-                exit={fadeIn.exit}
-                transition={fadeIn.transition}>
+            >
                 <div className="flex items-center">
                     <img
                         className="w-12 h-12 sm:h-14 sm:w-14 md:w-20 md:h-20 rounded-2xl"

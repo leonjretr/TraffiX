@@ -1,7 +1,7 @@
 import {motion} from "framer-motion";
 import OtherPagesWrapper from "./OtherPagesWrapper.tsx";
 import LockedContent from "./LockedContent.tsx";
-import {fadeIn} from "../animations/PageTransition.ts";
+import {fadeIn} from "../animations/PageTransitions.ts";
 
 const ShopPage = () => {
     return (

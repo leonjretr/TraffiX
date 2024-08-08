@@ -1,7 +1,7 @@
 import {motion} from "framer-motion"
 import MainPageWrapper from "./MainPageWrapper.tsx";
 import CoinButton from "../buttons/CoinButton.tsx";
-import {fadeIn} from "../animations/PageTransition.ts";
+import {fadeIn} from "../animations/PageTransitions.ts";
 
 const MainPageNew = () => {
     return (

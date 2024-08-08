@@ -2,7 +2,7 @@ import {motion} from "framer-motion";
 import HeaderNavbar from "../navbars/HeaderNavbar.tsx";
 import StatBoardNew from "../cards/StatBoardNew.tsx";
 import {IStats} from "../types/types.tsx";
-import {fadeIn} from "../animations/PageTransition.ts"
+import {fadeIn} from "../animations/PageTransitions.ts";
 
 const HeaderMainNew = () => {
     const avatarUrl = new URL("/imgs/bradpitt.jpg", import.meta.url).href;

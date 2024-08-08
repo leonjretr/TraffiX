@@ -10,7 +10,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import LoadingScroll from "../animations/LoadingScroll.tsx";
 import ModalAddFriend from "../modals/ModalAddFriend.tsx";
 import AddFriendButton from "../buttons/AddFriendButton.tsx";
-import {fadeIn} from "../animations/PageTransition.ts"
+import {fadeIn} from "../animations/PageTransitions.ts";
 
 const FriendsPage = () => {
     const friendsUrl = new URL("/imgs/friends.svg", import.meta.url).href;

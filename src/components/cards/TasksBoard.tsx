@@ -10,6 +10,8 @@ import LoadingScroll from "../animations/LoadingScroll.tsx";
 
 const TasksBoard = () => {
 
+    const coinUrl = new URL("/imgs/coin.png", import.meta.url).href;
+
     const [allTasks, setAllTasks] = useState<ITasks[]>([]);
     const [displayedTasks, setDisplayedTasks] = useState<ITasks[]>([]);
     const [page, setPage] = useState(1);
@@ -68,6 +70,7 @@ const TasksBoard = () => {
         }
     }, [isModalOpened]);
 
+
     return (
         <div className={"TaskBoard pb-5"}>
             <h1 className={"text-white text-2xl font-poppinsFont text-center mt-5 select-none"}>Your tasks</h1>
@@ -95,21 +98,22 @@ const TasksBoard = () => {
 
                 {selectedTask && (
                     <>
-                        <h2 className="text-xl text-center text-black font-poppinsFont font-semibold mb-4">
+                        <h2 className="text-xl text-center text-black font-poppinsFont font-semibold mb-3">
                             Task Description
                         </h2>
-                        <h2 className="text-base text-center text-gray-800 font-poppinsFont font-semibold mb-2">
+                        <h2 className="text-base text-center text-black font-poppinsFont font-semibold mb-1">
                             {selectedTask.name}
                         </h2>
-                        <div className={"flex justify-center items-center mb-4"}>
-                            <h2 className="text-base text-center text-gray-800 font-poppinsFont font-semibold">
-                                And get: &nbsp;
-                            </h2>
-                            <h2 className="text-lg text-center text-black font-poppinsFont font-bold">
-                                {selectedTask.reward} TR coins
-                            </h2>
-                        </div>
-                        <h2 className="text-sm text-center text-gray-500 font-poppinsFont font-semibold mb-4">
+                        <h2 className="flex gap-0.5 justify-center text-xl text-center text-black font-poppinsFont font-bold mb-2">
+                            {selectedTask.reward}
+                            <img className={"w-6 h-6"} src={coinUrl} alt={"Coin"} />
+                        </h2>
+                        {/*<div className={"flex justify-center items-center mb-4"}>*/}
+                        {/*    <h2 className="text-base text-center text-gray-800 font-poppinsFont font-semibold">*/}
+                        {/*        And get: &nbsp;*/}
+                        {/*    </h2>*/}
+                        {/*</div>*/}
+                        <h2 className="text-sm text-center text-gray-500 font-poppinsFont font-semibold mb-2">
                             Do you want to start this task?
                         </h2>
                     </>
