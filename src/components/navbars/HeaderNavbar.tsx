@@ -3,6 +3,7 @@ import {IoIosWallet, IoMdSettings} from "react-icons/io";
 import {useEffect} from "react";
 import ModalSettings from "../modals/ModalSettings.tsx";
 import ModalUnavailable from "../modals/ModalUnavailable.tsx";
+
 import modalStore from "../../stores/ModalStore.ts";
 import Settings from "../modals/Settings.tsx";
 
