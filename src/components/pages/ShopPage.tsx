@@ -5,18 +5,19 @@ import {fadeIn} from "../animations/PageTransitions.ts";
 
 const ShopPage = () => {
     return (
-        <OtherPagesWrapper>
-            <motion.div
-                className={"TopPage bg-bgNewShade min-h-screen select-none"}
-                initial={fadeIn.initial}
-                animate={fadeIn.animate}
-                exit={fadeIn.exit}
-                transition={fadeIn.transition}>
 
+        <motion.div
+            className={"TopPage bg-bgNewShade min-h-screen select-none"}
+            initial={fadeIn.initial}
+            animate={fadeIn.animate}
+            exit={fadeIn.exit}
+            transition={fadeIn.transition}>
+
+            <OtherPagesWrapper>
                 <LockedContent/>
+            </OtherPagesWrapper>
+        </motion.div>
 
-            </motion.div>
-        </OtherPagesWrapper>
     );
 };
 
