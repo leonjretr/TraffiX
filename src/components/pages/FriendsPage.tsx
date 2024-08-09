@@ -75,7 +75,7 @@ const FriendsPage = () => {
     return (
         <OtherPagesWrapper>
             <motion.div
-                className={"TopPage bg-bgNewShade min-h-screen overflow-y-auto select-none pb-24"}
+                className={"bg-bgNewShade min-h-screen overflow-y-auto select-none pb-24"}
                 initial={fadeIn.initial}
                 animate={fadeIn.animate}
                 exit={fadeIn.exit}
@@ -145,18 +145,3 @@ const FriendsPage = () => {
 };
 
 export default FriendsPage;
-
-
-{/*<h1 className={"text-white text-5xl font-niceFontSec text-center m-10 select-none"}>Working on*/
-}
-{/*    it...</h1>*/
-}
-
-// <p className="text-center text-white text-base font-poppinsFont font-base mt-6">
-//     loading...
-// </p>
-
-// <img className={"bg-white w-10 h-10"}
-//      src={loadingUrl}
-//      alt={"Loading"}/>
-// }

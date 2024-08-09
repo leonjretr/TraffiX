@@ -17,7 +17,8 @@ const HeaderMainNew = () => {
             initial={fadeIn.initial}
             animate={fadeIn.animate}
             exit={fadeIn.exit}
-            transition={fadeIn.transition}>
+            transition={fadeIn.transition}
+        >
             <div className={"flex justify-between"}>
                 <div className="flex mt-3 sm:ml-2 md:ml-3">
                     <img

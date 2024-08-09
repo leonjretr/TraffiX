@@ -3,11 +3,11 @@ import FooterNew from "../footer/FooterNew.tsx";
 import HeaderOtherNew from "../header/HeaderOtherNew.tsx";
 
 
-interface PageWrapperNewProperties {
+interface OtherPagesWrapperProps {
     children: React.ReactNode;
 }
 
-const OtherPagesWrapper: FC<PageWrapperNewProperties> = ({ children }) => {
+const OtherPagesWrapper: FC<OtherPagesWrapperProps> = ({ children }) => {
     return (
         <div>
             <HeaderOtherNew />

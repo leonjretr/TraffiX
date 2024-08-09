@@ -14,13 +14,12 @@ const TasksPageNew = () => {
                 exit={fadeIn.exit}
                 transition={fadeIn.transition}
             >
-                <TasksBoard/>
-                {/*<div className={"bg-bgNewShade  "}>*/}
 
-                {/*</div>*/}
+                <TasksBoard/>
 
             </motion.div>
         </OtherPagesWrapper>
+
     );
 };
 

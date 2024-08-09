@@ -1,4 +1,3 @@
-// import {Link} from "react-router-dom";
 import {FC, ReactElement} from "react";
 import {motion} from "framer-motion";
 import routerStore from "../../stores/routerStore.ts";
