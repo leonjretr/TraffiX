@@ -70,7 +70,6 @@ const TasksBoard = () => {
         }
     }, [isModalOpened]);
 
-
     return (
         <div className={"TaskBoard pb-5"}>
             <h1 className={"text-white text-2xl font-poppinsFont text-center mt-5 select-none"}>Your tasks</h1>
