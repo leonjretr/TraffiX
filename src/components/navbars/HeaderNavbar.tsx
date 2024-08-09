@@ -10,9 +10,9 @@ const HeaderNavbar = () => {
 
     useEffect(() => {
         if (modalStore.isModalUnavailableOpen || modalStore.isModalSettingsOpen) {
-            document.body.classList.add('overflow-hidden');
+            document.body.style.overflow="hidden"
         } else {
-            document.body.classList.remove('overflow-hidden');
+            document.body.style.overflow="auto"
         }
     }, [modalStore.isModalSettingsOpen, modalStore.isModalUnavailableOpen]);
 
