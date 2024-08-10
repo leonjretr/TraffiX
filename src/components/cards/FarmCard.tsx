@@ -14,14 +14,14 @@ const FarmCard: FC<FarmCardProps> = ({cardTitle, features, featuresProfit, featu
     const iconURL = new URL("/imgs/trump.jpg", import.meta.url).href
     const coinURL = new URL("/imgs/coin.png", import.meta.url).href
     return (
-        <motion.div className="flex flex-col bg-bgNew w-40 h-28 rounded-lg select-none"
+        <motion.div className="flex flex-col bg-bgNew w-full h-28 rounded-lg select-none"
                     whileTap={{scale: 0.87}}>
             <div className="flex">
                 <div className={"flex justify-start m-2"}>
                     <img src={iconURL} alt="Icon" className={"w-10 h-14 rounded-lg"}/>
                 </div>
                 <Divider classname={"border-l border-bgNewShade h-full"}/>
-                <div className={"ml-2 mt-2 flex-col font-poppinsFont text-left text-white"}>
+                <div className={"ml-2 mt-2 flex-col font-poppinsFont text-left text-white mr-2"}>
                     <h1 className={"text-xs font-medium"}>{cardTitle}</h1>
                     {features.map((feature) => (
                         <div className={"flex text-xxxs font-normal gap-3"}>
@@ -38,7 +38,7 @@ const FarmCard: FC<FarmCardProps> = ({cardTitle, features, featuresProfit, featu
                 <Divider classname={"border-t-2 border-bgNewShade w-full"}/>
             </div>
             <div
-                className={"ml-2 mt-1 grid grid-flow-col grid-rows-2  text-white font-poppinsFont font-medium"}>
+                className={"ml-2 mt-2 grid grid-flow-col grid-rows-2  text-white font-poppinsFont font-medium"}>
                 {features.map((feature) => (
                     <div className={"flex text-xxxs font-normal gap-3 "}>
                         <h1>{feature}</h1>
