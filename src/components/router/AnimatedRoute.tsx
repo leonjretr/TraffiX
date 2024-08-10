@@ -40,7 +40,7 @@ const AnimatedRoute = observer(() => {
             const swipeDistanceX = endTouchX - startTouchX;
             const swipeDistanceY = Math.abs(endTouchY - startTouchY); // Math abs чтобы значение всегда было положительным
 
-            if (startTouchX < 100 && swipeDistanceY < thresholdY && swipeDistanceX > thresholdX && !routerStore.isNavigating) {
+            if (startTouchX < 90 && swipeDistanceY < thresholdY && swipeDistanceX > thresholdX && !routerStore.isNavigating) {
                 handleSwipeRight(); // 100 - максимальное значение X при котором регистрируется startTouch при свайпе вправо
             }
             if (startTouchX > 380 && swipeDistanceY < thresholdY && swipeDistanceX < -thresholdX && !routerStore.isNavigating) {

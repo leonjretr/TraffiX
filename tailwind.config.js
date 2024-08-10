@@ -32,6 +32,11 @@ export default {
         '110': '36rem',
         '90': '22rem',
         '18': '4.5rem',
+      },
+      fontSize: {
+        'xxs': '0.625rem', // 10px
+        'xxxs':'0.5rem',
+        'xxxxs':'0.375rem',
       }
     },
   },
