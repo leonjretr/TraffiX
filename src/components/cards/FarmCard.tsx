@@ -14,17 +14,17 @@ const FarmCard: FC<FarmCardProps> = ({cardTitle, features, featuresProfit, featu
     const iconURL = new URL("/imgs/trump.jpg", import.meta.url).href
     const coinURL = new URL("/imgs/coin.png", import.meta.url).href
     return (
-        <motion.div className="flex flex-col bg-bgNew w-full h-28 rounded-lg select-none"
+        <motion.div className="flex flex-col bg-bgNew w-full h-28 mob1:h-36 rounded-lg select-none"
                     whileTap={{scale: 0.87}}>
             <div className="flex">
                 <div className={"flex justify-start m-2"}>
-                    <img src={iconURL} alt="Icon" className={"w-10 h-14 rounded-lg"}/>
+                    <img src={iconURL} alt="Icon" className={"w-12 h-16 rounded-lg"}/>
                 </div>
                 <Divider classname={"border-l border-bgNewShade h-full"}/>
                 <div className={"ml-2 mt-2 flex-col font-poppinsFont text-left text-white mr-2"}>
-                    <h1 className={"text-xs font-medium"}>{cardTitle}</h1>
+                    <h1 className={"text-xs mob1:text-sm mob2:text-base font-medium"}>{cardTitle}</h1>
                     {features.map((feature) => (
-                        <div className={"flex text-xxxs font-normal gap-3"}>
+                        <div className={"flex text-xxxs mob1:text-xxs font-normal gap-3"}>
                             <h1>{feature}</h1>
                             <div className={"flex gap-0.5 items-center"}>
                                 <h1>+{featuresProfit}</h1>
@@ -40,7 +40,7 @@ const FarmCard: FC<FarmCardProps> = ({cardTitle, features, featuresProfit, featu
             <div
                 className={"ml-2 mt-2 grid grid-flow-col grid-rows-2  text-white font-poppinsFont font-medium"}>
                 {features.map((feature) => (
-                    <div className={"flex text-xxxs font-normal gap-3 "}>
+                    <div className={"flex text-xxxs mob1:text-xxs font-normal gap-3 "}>
                         <h1>{feature}</h1>
                         <div className={"flex gap-0.5 items-center"}>
                             <h1>{featuresTotal}</h1>
