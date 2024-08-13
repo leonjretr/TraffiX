@@ -20,7 +20,6 @@ const ReferralBoard: FC<ReferralBoardProps> = ({friendId}) => {
                     src={userUrl}
                     alt="Task Avatar"
                 />
-
                 <h1 className={"flex font-poppinsFont text-white font-light mt-1 ml-3 text-sm"}>
                     {friendId}
                 </h1>

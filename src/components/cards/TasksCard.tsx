@@ -46,7 +46,7 @@ const TasksCard: FC<TasksCardProps> = ({avatar, taskTitle, taskProfit, openModal
                 </div>
             ) : (
                 <div
-                    className="flex w-24 h-20 mob3:h-24 mt-6 rounded-r-xl bg-neutral-700 place-items-center pl-1">
+                    className="flex w-16 h-20 mob3:h-24 mt-6 rounded-r-xl bg-neutral-700 items-center pl-1">
                     <MdArrowForwardIos className="ml-2" size="40px" color="gray"/>
                 </div>
             )}

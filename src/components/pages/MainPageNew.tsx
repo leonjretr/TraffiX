@@ -7,7 +7,7 @@ const MainPageNew = () => {
     return (
         <MainPageWrapper>
             <motion.div
-                className={"MainPage bg-bgNewShade min-h-screen select-none"}
+                className={"MainPage bg-bgNewShade min-h-screen h-full select-none"}
                 initial={fadeIn.initial}
                 animate={fadeIn.animate}
                 exit={fadeIn.exit}

@@ -4,6 +4,7 @@ class modalStore {
 
     isModalUnavailableOpen:boolean = false;
     isModalSettingsOpen:boolean = false;
+    isModalFarmCardOpen:boolean = false;
 
     constructor() {
         makeAutoObservable(this);
@@ -21,6 +22,13 @@ class modalStore {
     }
     setCloseModalSettings = () => {
         this.isModalSettingsOpen = false;
+    }
+
+    setOpenModalFarmCard = () => {
+        this.isModalFarmCardOpen = true;
+    }
+    setCloseModalFarmCard = () => {
+        this.isModalFarmCardOpen = false;
     }
 }
 

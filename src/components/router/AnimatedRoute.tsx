@@ -43,7 +43,7 @@ const AnimatedRoute = observer(() => {
             if (startTouchX < 90 && swipeDistanceY < thresholdY && swipeDistanceX > thresholdX && !routerStore.isNavigating) {
                 handleSwipeRight(); // 100 - максимальное значение X при котором регистрируется startTouch при свайпе вправо
             }
-            if (startTouchX > 380 && swipeDistanceY < thresholdY && swipeDistanceX < -thresholdX && !routerStore.isNavigating) {
+            if (startTouchX > 370 && swipeDistanceY < thresholdY && swipeDistanceX < -thresholdX && !routerStore.isNavigating) {
                 handleSwipeLeft(); // 350 - максимальное значение X при котором регистрируется startTouch при свайпе влево
             }
             touchInProgress.current = false;
