@@ -1,21 +1,24 @@
-import Header from "./components/header/Header.tsx";
-import MainPageBody from "./components/main-page/MainPageBody.tsx";
-import Footer from "./components/footer/Footer.tsx";
+import {BrowserRouter as Router} from "react-router-dom";
+import AnimatedRoute from "./components/router/AnimatedRoute.tsx";
+// import {useEffect, useState} from "react";
+// import {IUserApiResponse} from "./components/types/types.tsx";
+// import fetchUsers from "./fetches/fetchUser.ts";
+import userStore from "../src/stores/userStore.ts";
+import {observer} from "mobx-react-lite";
 
-const App = () => {
+const App = observer(() => {
+
+    userStore.fetchAllUsersStore();
+    userStore.fetchUserData();
+    userStore.userAuthorization();
+
     return (
-        <div className="App bg-main">
-            <div className={"Header"}>
-                <Header/>
-            </div>
-            <div className={"MainPageBody"}>
-                <MainPageBody/>
-            </div>
-            <div className={"Footer"}>
-                <Footer/>
-            </div>
+        <div className="App bg-bgNewShade min-h-screen">
+            <Router>
+                <AnimatedRoute/>
+            </Router>
         </div>
     );
-};
+});
 
 export default App;
