@@ -1,5 +1,5 @@
 import {motion} from "framer-motion";
-import Divider from "../Divider.tsx";
+import Divider from "../dividers/Divider.tsx";
 import {FC} from "react";
 
 interface FarmCardProps {
@@ -11,7 +11,7 @@ interface FarmCardProps {
 
 
 const FarmCard: FC<FarmCardProps> = ({cardTitle, features, featuresProfit, featuresTotal}) => {
-    const iconURL = new URL("/imgs/trump.jpg", import.meta.url).href
+    const iconURL = new URL("/imgs/pc.jpg", import.meta.url).href
     const coinURL = new URL("/imgs/coin.png", import.meta.url).href
 
     // const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
