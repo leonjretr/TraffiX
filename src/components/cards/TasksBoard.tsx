@@ -82,6 +82,7 @@ const TasksBoard = () => {
                                    key={index} avatar={task.icon} taskTitle={task.name}
                                    taskProfit={task.reward}
                                    category={task.category}
+                                   index={index}
                         />
                     )}
                 </InfiniteScroll>
@@ -105,13 +106,8 @@ const TasksBoard = () => {
                         </h2>
                         <h2 className="flex gap-0.5 justify-center text-xl text-center text-black font-poppinsFont font-bold mb-2">
                             {selectedTask.reward}
-                            <img className={"w-6 h-6"} src={coinUrl} alt={"Coin"} />
+                            <img className={"w-6 h-6"} src={coinUrl} alt={"Coin"}/>
                         </h2>
-                        {/*<div className={"flex justify-center items-center mb-4"}>*/}
-                        {/*    <h2 className="text-base text-center text-gray-800 font-poppinsFont font-semibold">*/}
-                        {/*        And get: &nbsp;*/}
-                        {/*    </h2>*/}
-                        {/*</div>*/}
                         <h2 className="text-sm text-center text-gray-500 font-poppinsFont font-semibold mb-2">
                             Do you want to start this task?
                         </h2>
@@ -130,21 +126,3 @@ const TasksBoard = () => {
 };
 
 export default TasksBoard;
-
-// const avatarUrl = new URL("/imgs/insta.svg", import.meta.url).href;
-// const avatarUrl2 = new URL("/imgs/telegram.jpg", import.meta.url).href;
-// const avatarUrl3 = new URL("/imgs/bradpitt.jpg", import.meta.url).href;
-// const cardsData = [
-//     {avatar: avatarUrl2, taskTitle: "Show tits", taskProfit: "300 KB", completed: true},
-//     {avatar: avatarUrl, taskTitle: "Show pussy", taskProfit: "300 GB", completed: false},
-//     {avatar: avatarUrl3, taskTitle: "Show ass", taskProfit: "300 MB", completed: true}
-// ]
-
-
-// const data = await fetchTasks();
-// setCardData(data);
-// if (Array.isArray(data)) {
-//
-// } else {
-//     console.error("Fetched data is not an array:", data);
-// }
