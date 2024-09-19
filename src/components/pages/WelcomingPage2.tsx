@@ -3,7 +3,7 @@ import {Link, Outlet} from "react-router-dom";
 import PaginationGuideButton from "../buttons/PaginationGuideButton.tsx";
 
 const WelcomingPage2 = () => {
-    const app2 = new URL("/imgs/ourApp2.png", import.meta.url).href;
+    const app2 = new URL("/imgs/guide2.jpg", import.meta.url).href;
     const text = "You can perform tasks and earn easy coins".split(" ");
     const text2 = "Easier tasks bring you less coins, harder - more coins".split(" ");
 
