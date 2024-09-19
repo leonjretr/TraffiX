@@ -3,7 +3,7 @@ import {Link, Outlet} from "react-router-dom";
 import PaginationGuideButton from "../buttons/PaginationGuideButton.tsx";
 
 const WelcomingPage3 = () => {
-    const app3 = new URL("/imgs/ourApp3.png", import.meta.url).href;
+    const app3 = new URL("/imgs/guide3.jpg", import.meta.url).href;
     const text = "Also, you can earn from inviting your friends!".split(" ");
     const text2 = "Each friend can bring you up to 20$".split(" ");
 
